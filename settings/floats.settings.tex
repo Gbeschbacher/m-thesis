@@ -1,0 +1,36 @@
+% ========= FLOATS =========
+% >>>>>>>>> TABLES =========
+% \usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+% >>>>>>>>> LIST OF EQUATIONS =========
+\usepackage{tocloft}
+\newcommand{\listequationname}{List of Equations}
+\newlistof{equations}{equ}{\listequationname}
+\newcommand{\equationlistentry}[1]{%
+\addcontentsline{equ}{equations}{\protect\numberline{\theequation}#1}\par}
+\setlength{\cftequationsindent}{1.5em}
+\setlength{\cftequationsnumwidth}{2.3em}
+\renewcommand{\cftequtitlefont}{\normalfont\Large\bfseries}
+% >>>>>>>>> LIST OF DEFINITIONS =========
+\newcommand{\listdefinitionname}{List of Definitions}
+\newlistof{definitions}{idef}{\listdefinitionname}
+\newcommand{\definitionlistentry}[1]{%
+\addcontentsline{idef}{definitions}{\protect\numberline{\thedefinition}#1}\par}
+\setlength{\cftdefinitionsindent}{1.5em}
+\setlength{\cftdefinitionsnumwidth}{2.3em}
+\renewcommand{\cftideftitlefont}{\normalfont\Large\bfseries}
+% >>>>>>>>> ALGORITHMS =========
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\algtext*{EndFunction}% Remove "end function" text
+\algtext*{EndIf}% Remove "end if" text
+\algtext*{EndFor}% Remove "end for" text
+\MakeRobust{\Call} % nesting \Call command
+% >>>>>>>>> KEEP POSITION =========
+\usepackage{float} % for the H option of floating environments, to force position
+\floatstyle{plain}
+\restylefloat{figure}
+\restylefloat{table}
+\floatstyle{ruled}
+\restylefloat{algorithm}

@@ -1,0 +1,45 @@
+\pagenumbering{roman}
+
+\include{1_title}
+
+\setcounter{page}{1}
+
+%\include{2_affirmation}
+
+%\include{3_summary}
+
+%\include{4_abstract}
+
+\nocite{*}
+
+\clearpage
+\tableofcontents
+
+\clearpage
+\isection{List of Abbreviations}
+\listofabbreviations
+\clearpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\include{5_introduction}
+
+%\include{6_related_work}
+
+%\include{7_framework}
+
+%\include{8_requirements}
+
+%\include{9_conclusion}
+
+\clearpage
+% \addtocontents{toc}{\protect\pagebreak}
+\begin{sloppypar}
+\printbibliography  
+\end{sloppypar}
+\iheader{References}
+
+%\clearpage
+%\listoffigures
+%\iheader{List of Figures}

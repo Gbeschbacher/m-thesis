@@ -1,0 +1,36 @@
+\include{settings/document.settings}
+\include{settings/language.settings}
+\include{settings/data.settings}
+\include{settings/section.settings}
+\include{settings/math.settings}
+\include{settings/environments.settings}
+\include{settings/improvements.settings}
+\include{settings/header.settings}
+\include{settings/bibliography.settings}
+\include{settings/floats.settings}
+\include{settings/macros.settings}
+\include{settings/window.settings}
+\include{settings/caption.settings}
+\include{settings/acronym.settings}
+\include{settings/index.meta.settings}
+
+% ========= Add variables \theauthor, \thetitle, \thedate etc. =========
+\usepackage{titling}
+
+% \hyphenation{
+    %add manual hyphenation rules in the format: Fach-hoch-schule
+% }
+
+% ========= MISC LOADED AFTER HYPERREF =========
+\usepackage[noabbrev]{cleveref}
+
+\bibliography{bibliography}
+
+
+
+\begin{document}
+
+\input{body}
+
+\setlength{\parskip}{10pt}
+\end{document}

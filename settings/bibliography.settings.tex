@@ -1,0 +1,9 @@
+% ========= BIBLIOGRAPHY =========
+\usepackage[backend=biber,authordate,bibencoding=UTF-8,strict,noibid,natbib]{biblatex-chicago}
+\usepackage[babel,german=guillemets]{csquotes}
+
+\makeatletter
+\AtEveryBibitem{%
+  \global\undef\bbx@lasthash%
+  \clearfield{extrayear}}
+\makeatother
