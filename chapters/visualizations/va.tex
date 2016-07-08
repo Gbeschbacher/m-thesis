@@ -46,3 +46,47 @@ Figure \ref{fig:va-related} on page \pageref{fig:va-related} shows the interdisc
 \label{fig:va-related}
 \end{figure}
 
+In order to create visualization designs, it is needed to clarify the usage of marks and channels in designs first. Marks basically are geometric elements that depict items or links. Figure \ref{fig:va-marks} on page \pageref{fig:va-marks} shows examples of marks in different dimensions. Points count as a 0D mark, whereas lines belong to 1D marks, and areas to 3D marks. A visual channel controls the appearance of a given mark, independent of the dimensionality. Figure \ref{fig:va-channels} on page \pageref{fig:va-channels} shows a few channels that can encode information. The core of a design can be described as a combination of two aspects: graphical elements called marks, and visual channels.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=5cm,keepaspectratio]{images/va/marks.png}
+\caption[
+    Marks are geometric primitives \iacite{Munzner2014}.
+]{Marks are geometric primitives.}
+\label{fig:va-marks}
+\end{figure}
+
+\citeauthor{Munzenr2014} states, that all channels are not equal. She says that using two different visual channels on the same data attributed results in different information after it has passed through the perceptual and cognitive processes of the human visual system. The usage of marks and channels in a design should be guided by the principles of expressiveness and effectiveness \iacite{Munzenr2014}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=5cm,keepaspectratio]{images/va/channels.png}
+\caption[
+    Visual channels control the appearance of marks \iacite{Munzner2014}.
+]{Visual channels control the appearance of marks.}
+\label{fig:va-channels}
+\end{figure}
+
+\begin{enumerate}
+\ditem{The expressivenss principle} suggests that the used channel should express all of the information in the dataset attributes. The most fundamental expression of this principle is, that known pattern should be shown accordinly, e.g. sorted and ranked data should be shown in a way that this pattern is intrinsically sensed \iacite{Munzner2014}.
+
+\ditem{The effectivenss principle} suggests that the importance of the data attribute should match the emphasis of the channel, so to say its noticeability \iacite{Munzner2014}.
+\end{enumerate}
+
+Figure \ref{fig:va-channels-ranked} on page \pageref{fig:va-channels-ranked} introduces visual channels ranked by their effectiveness. To fully understand this figure, it is first needed to explain different attribute types.
+
+There are two major types: categorical and ordered. Within the ordered type, there is a distinction between ordinal and quantitative types. Categorical data attributes can be mathematically described as the attributes where only equality comparisons of attributes are possible ($=$, $\neq$). This does not exclude the usage of any arbitrary external ordering like alphabetically ordering because such orderings are not implicit in the attribute itself. However ordered data allows the use of rankingin addition to equality comparisons because they have such an implication ($=$, $\neq$, $>$, $<$). As already mentioned, this type can be further subclassified. Quantitative data allow the usage of arithmetic operations because it is a measurement of magnitude. Only one furher distinction is needed to know if multiplication and division is possible or not. If the origin of the measurement is meaningful, like in length, mass, temperature, and so forth, it is possible to use the following arithmetic operations: $=$, $\neq$, $>$, $<$, $+$, $-$, $\times$, $\div$. If this is not the case, but the attribute still allows for zero arbitrary, the following arithmetic operations can be applied: $=$, $\neq$, $>$, $<$, $+$, $-$ \iacite{Stevens1946}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=10cm,keepaspectratio]{images/va/channels-ranked.png}
+\caption[
+    Channels ranked by effectiveness according to data and channel type. Ordered data should be shown with the magnitude channels, and categorical data with the identity channels \iacite{Munzner2014}.
+]{Channels ranked by effectiveness according to data and channel type. Ordered data should be shown with the magnitude channels, and categorical data with the identity channels.}
+\label{fig:va-channels-ranked}
+\end{figure}
+
+With the different attribute types defined and explained, the distinction and usage of magnitude and idendity channels, visible in figure \ref{fig:va-channels-ranked}, should be clear. The ranking ranges from the most effective channels at the top to the least effective ones at the bottom. The most effective visual channels for ordered attributes are based on spatial position, either aligned or unaligned. The next four channels (length, angle, area and depth) are somewhat combinable: length is a 1D size, whereas angle and area are used for 2D sizes and depth for 3D positioning. These channels are followed by two roughly equally effective ones: luminance and saturation, which in turn are followed by two channels roughly equally in terms of accuracy: curvature and volume. The most effective idendity channel is spatial region, followed color hue. In 3\textsuperscript{rd} position is the motion channel, which is very effective for a single set of moving items against asea of static ones. The least effective channel is the shape \ia{Munzner2014}.
+
+It is observable, that both channels have some kind of 2D spatial positioning ranked highest. The ranking shown is \citeauthor{Munzner2014}'s own synthesis of information drawn from many sources. The justification of this ranking is not part of this thesis and will be not be discussed.
