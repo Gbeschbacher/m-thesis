@@ -1,0 +1,24 @@
+Choropleth maps are extremely popular, probably the most common thematic map in use today. That's good because it means your audience is likely to understand them. One reason they're popular is that much of our geodata is reported by enumeration units, such as census data, and so we are accustomed to thinking of the world as divided into spatial units like census tracts, counties, and provinces. However, most cartographers would argue choropleth maps are over-used and commonly misused if the geographic phenomena being mapped aren't intrinsically tied to enumeration units: For example, communicable diseases, soil types, or age demographics don't care much about county lines or zip codes and rarely do they change abruptly at those human-created boundaries. By comparison, tax rates are very closely tied to enumeration units, do change abruptly, and make perfect sense as a choropleth map. The less the thing you are mapping is tied to enumeration units, the less sense a choropleth map makes.
+
+These are maps, where areas are shaded according to a prearranged key, each shading or colour type representing a range of values. Population density information, expressed as 'per km²,' is appropriately represented using a choropleth map. Choropleth maps are also appropriate for indicating differences in land use, like the amount of recreational land or type of forest cover.
+
+
+
+For continuous data, two mapping techniques are commonly used: choropleth and isarithmic mapping. This chapter will only cover choropleth mapping because the practical part of this thesis will not feature isarithmic mapping.
+
+
+The choropleth method involves applying value or color
+intensity to enumeration units (census tracts, counties, states, nations) based on some statistical
+value. The higher an enumeration unit’s data value, the darker or more saturated the color value.
+Fundamental to every choropleth method are the concepts of data standardization and
+classification.
+All choropleth data must be standardized. We repeat: a choropleth map may never – ever –
+be used to map count data. If one maps raw data using the choropleth method, the visualization
+will suffer from an inherent areal bias. Not all enumeration units are the same size; thus, some
+enumeration units will naturally have more count data than others simply due to their areal
+extent. For instance, Texas and California have greater populations than Rhode Island or
+Connecticut. This should not be a surprise – Texas and California have huge areas compared to
+the other two states. If you standardize the data by area, however, Connecticut and Rhode Island
+are far more populated when it comes to the number of people per square kilometer. If you are
+interested in comparing the raw number of people living in states, you should use proportional
+symbols.
