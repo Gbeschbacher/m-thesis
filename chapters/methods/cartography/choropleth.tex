@@ -1,24 +1,13 @@
-Choropleth maps are extremely popular, probably the most common thematic map in use today. That's good because it means your audience is likely to understand them. One reason they're popular is that much of our geodata is reported by enumeration units, such as census data, and so we are accustomed to thinking of the world as divided into spatial units like census tracts, counties, and provinces. However, most cartographers would argue choropleth maps are over-used and commonly misused if the geographic phenomena being mapped aren't intrinsically tied to enumeration units: For example, communicable diseases, soil types, or age demographics don't care much about county lines or zip codes and rarely do they change abruptly at those human-created boundaries. By comparison, tax rates are very closely tied to enumeration units, do change abruptly, and make perfect sense as a choropleth map. The less the thing you are mapping is tied to enumeration units, the less sense a choropleth map makes.
+For continuous data, two mapping techniques are commonly used: choropleth and isarithmic mapping. This chapter will only cover choropleth mapping because the practical part of this thesis will not feature isarithmic mapping. The basic idea of choropleth mapping is applying value or color intensity to enumeration units like census tracts, counties, states or nations based on some statistical value. The higher a value assigned to an enumeration unit, the more saturated the color of that unit. Fundamental to this type of mapping is standardization and classification of data. If data is not standardized and used raw, the visualization will suffer from an inherent areal bias \iacite{McMaster2010}. This problem is described with a practical example: the united kingdom has greater population but lower area compared to canada. However, if the mapped data is not standardized by area, canada will have a higher visual impact than united kingdom due to their superior areal extent, even though the mapped attribute mapped onto canada has a lower value compared to the one on united kingdom. Therefore the less the mapped attribute is tied to enumeration units, the less sense a choropleth map makes.
 
-% These are maps, where areas are shaded according to a prearranged key, each shading or colour type representing a range of values. Population density information, expressed as 'per km²,' is appropriately represented using a choropleth map. Choropleth maps are also appropriate for indicating differences in land use, like the amount of recreational land or type of forest cover.
+The following list shows the most rudimentary and most common methods to classify data mentioned by \citeauthor{McMaster2010}. The amount of classes must be known before and to explain the classifications below, five different classes with a value range from 10 to 85 is used.
 
+\begin{itemize}
 
+\item \textbf{Equal interval classification} assumes equal range between the class breaks. With the mentioned example, class one would include values from 10 to 25, class two would include values from 25 to 40, and so forth \iacite{McMaster2010}.
 
-For continuous data, two mapping techniques are commonly used: choropleth and isarithmic mapping. This chapter will only cover choropleth mapping because the practical part of this thesis will not feature isarithmic mapping.
+\item \textbf{Quantiles classification} needs to know the amount of items in a dataset in addition to the amount of desired classes. Consider 100 observations in a dataset and five desired classes. Thus, 20 observations will be placed in each class. These 20 observations can be thought of as data values. Putting this amount of data values in five different classes results in 4 data values per class. Now it is only needed to go through the whole dataset and put the first to the fourth item in the first class, the fifth to the ninth item in the second class, and so forth \iacite{McMaster2010}.
 
+\item \textbf{Natural breaks classification} follows the idea of minimizing the internal variation of the dataset, while maximizing the variation among the classes. The user needs to choose significant gaps in the dataset, according to the number of desired classes \iacite{McMaster2010}.
 
-The choropleth method involves applying value or color
-intensity to enumeration units (census tracts, counties, states, nations) based on some statistical
-value. The higher an enumeration unit’s data value, the darker or more saturated the color value.
-Fundamental to every choropleth method are the concepts of data standardization and
-classification.
-All choropleth data must be standardized. We repeat: a choropleth map may never – ever –
-be used to map count data. If one maps raw data using the choropleth method, the visualization
-will suffer from an inherent areal bias. Not all enumeration units are the same size; thus, some
-enumeration units will naturally have more count data than others simply due to their areal
-extent. For instance, Texas and California have greater populations than Rhode Island or
-Connecticut. This should not be a surprise – Texas and California have huge areas compared to
-the other two states. If you standardize the data by area, however, Connecticut and Rhode Island
-are far more populated when it comes to the number of people per square kilometer. If you are
-interested in comparing the raw number of people living in states, you should use proportional
-symbols.
+\end{itemize}
