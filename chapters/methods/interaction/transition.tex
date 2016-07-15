@@ -1,0 +1,46 @@
+In order to understand transition referring to visualizations, it is important to point out the difference between transition and animation. Even though these two terms are often substituting each other, they follow two different concepts \iacite{Muehlenhaus2014}:
+
+According to the Merriam Webster Online Dictionary\footnote{See \href{http://www.merriam-webster.com/}{Merriam Webster Dictionary}} an animation is a way of making a movie by using a series of drawings, computer graphics or photographs that are slightly different from one another and that when viewed quickly one after another create the appearance of movement. Transition, however, is a movement, development, or evolution from one form, stage, or style to another.
+
+With these definitions, it is easy to distinguish the two terms. Animation is the process of making any kind of movement visible to a user, whereas transitions in visualizations make use of animations to show e.g. the change of visual appearance.
+
+\citeauthor{Thrower1959} was the first one to combine the research fields of cartography with animation. He describes the process of bringing e.g. population growth with animation on a map \iacite{Thrower1959}. However, animated cartography remained a bit of an oddity that was experimented with. This fact could not be changed even with the rise of the household \ac{PC}. Nonetheless, the mass adoption of the internet could counteract the rare usage of map animation \iacite{Muehlenhaus2014}.
+
+This chapter furthermore describes considerations when designing animated maps. Animation can basicly be broken down into two broad types:
+
+\begin{enumerate}
+\ditem{Stop-Frame Animation} \hfill \\
+This type of animation is also known as stop motion. Every frame of this type of animation is designed separately. After many pictures and movements are made, all pictures are in the order they were taken. The rate of change for each picture heavily influences the cognition of the animation \iacite{Faroudja1991}.
+\ditem{Tweening} \hfill \\
+This term bears its name from the word "betweening". It describes the process of interpolating movement between key frames, thus creating smoother animations compared to the stop-frame method \iacite{Muehlenhaus2014}.
+\end{enumerate}
+
+\citeauthor{DiBiase1992} identified three new visual variables dealing specifically with animation \iacite{DiBiase1992}:
+
+\begin{enumerate}
+
+\ditem{Duration} defines the temporal length of how long a particular frame in an animation is shown. Imagine a dataset containing decennial census of population data and an animation set to 24 frames per second. To give each map user the ability to conceive each decade, it is needed to show it at least for some seconds. For the sake of convenience a duration of 2 seconds is assumed to be enough. Therefore, it is needed to show each decennial census data for 48 frames, resulting in a 2 second duration \iacite{Muehlenhaus2014}.
+
+\ditem{Rate of Change} represents how quickly an image is morphed into the next attribute. In general, it denotes the magnitude of an attribute divided by the duration. This basically means, that it is needed to know how much the animated image being represented changes from frame to frame \iacite{Muehlenhaus2014}.
+
+\ditem{Order}
+Rather than animating data in the order they are given, they can be reorganized first by a specific attribute. For example, one could show all countries with a high population first, before showing small ones \iacite{Muehlenhaus2014}.
+
+\end{enumerate}
+
+% \subsubsection{Animation}
+
+% Mit Hilfe von Animation können Position, Größe, Form und/oder die Farbe eines Objektes auf eine natürlich Art und Weise geändert über die Zeit hinweg verändert werden. Es bietet sich an, Transition zu animieren und somit dafür zu sorgen, dass Änderungen wahrgenommen werden können. Forschungen zeigen, dass animierte Transitionen den Betrachter oder die Betrachterin orientiert halten können, das Lernen erleichtern, beim Fällen von Entscheidungen helfen und das Engagement beim Betrachten erhöhen. % 20, 24, 3, 9
+% Es gäbe auch die Möglichkeit Animation zu nutzen, um z.B. in einem Diagramm weitere Daten aus deinem Datenset zu vermitteln. Diese Möglichtkeit wird in dieser Arbeit jedoch nicht weiter behandelt.
+% Bei der Verwendung von Animationen, muss darauf geachtet werden, dass diese auch Nachteile mit sich bringen können, da eine Animation zeitlich gut abgestimmt sein muss, für den Betrachter oder die Betrachterin nicht zu komplex sein darf und nicht automatisch garantiert, dass das Erkennen von Zusammenhänge erleichtert wird. % 2,4,24
+% Sollten die animierten Transitionen zwischen Visualisierungen sorgfällig durchdacht sein, dann können sie die grafische Wahrnehmung für die Analyse jedoch deutlich erhöhen. Bewegung ist generell sehr effektiv, um die Aufmerksamkeit des Betrachters oder der Betrachterin zu erlangen und kann auch durch peripheres Sehen wahrgenommen werden, wodurch etwaige Punkte von Interesse direkt animiert werden sollten.  Nicht nur wirkt eine Animation anregend und emotional engagierend, sondern auch die Wahrnehmung wird verstärkt und Beziehungen zwischen unterschiedlichen Zuständen können aufgezeigt werden. % 17, 20, 16, 24, 25
+
+% Die Schattenseiten von Animationen könnten auch sein, dass sie eine Quelle der Ablenkung darstellen, die Aufmerksamkeit auf ein unwichtiges Detail lenken oder zu falschen Interpretation verleiten. % 23
+% Wichtig ist es auch, dass die Animation eine angenehme Geschwindigkeit besitzen. Den zu langsame Animationen könnten für den Betrachter oder die Betrachterin werden und eine zu schnelle Animation könnten kaum hilfreich sein. Die Schnelligkeit hängt von der Komplexität der Komposition der Elemente und wie vertraut der Betrachter oder die Betrachterin mit der Visualisierung ist. Es gilt somit wie zuvor erwähnt die Art und Weise der Animation bewusst und überlegt festzulegen. % Find good animation speed for app in literatur
+
+% Aufgrund des großen Design-Raums gibt es bereits empfohlene Leitlinien für das Erstellen von Animationen. Zongker und Salesin % 27
+% schlagen vor, dass jede Bewegung eine Bedeutung haben soll und man Prinzipien meiden sollte, welche empfehlen Elemente zu quetschen oder zu dehnen. Jede Art von Übertreibung sollte vermieden werden. Auch empfehlen sie, dass während einer Animation nur eine Aktion zu einem Zeitpunkt ausgeführt wird. Für Transitionen empfiehlt der Psychologe Tversky et al % 24
+% zwei Prinzipien. Das erste ist das Übereinstimmungs-Prinzip "Die Struktur und der Inhalt der externen Repräsentation soll zu der gewünschten Struktur und dem Inhalt der internen Repräsentation korrespondieren" und das Auffassungs-Prinzip "Die Struktur und der Inhalt einer externen Repräsentation soll ohne weiteres und exakt wahrzunehmen und begreifbar sein". Diese Prinzipien gehen mit Mackinlays Expressiveness-Kriterium für das automatisierten Erstellen von statischen Darstellungen einher.
+
+% % Prinizipien für Animationen gibt es in 13!
+% % Diskussion der Prinzipien gibt es in 27!
