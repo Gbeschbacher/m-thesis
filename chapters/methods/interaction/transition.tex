@@ -12,7 +12,7 @@ This chapter furthermore describes considerations when designing animated maps. 
 \ditem{Stop-Frame Animation} \hfill \\
 This type of animation is also known as stop motion. Every frame of this type of animation is designed separately. After many pictures and movements are made, all pictures are in the order they were taken. The rate of change for each picture heavily influences the cognition of the animation \iacite{Faroudja1991}.
 \ditem{Tweening} \hfill \\
-This term bears its name from the word "betweening". It describes the process of interpolating movement between key frames, thus creating smoother animations compared to the stop-frame method \iacite{Muehlenhaus2014}.
+    This term bears its name from the word "betweening". It describes the process of interpolating movement between key frames, thus creating smoother animations compared to the stop-frame method \iacite{Muehlenhaus2014}.
 \end{enumerate}
 
 \citeauthor{DiBiase1992} identified three new visual variables dealing specifically with animation \iacite{DiBiase1992}:
@@ -28,19 +28,18 @@ Rather than animating data in the order they are given, they can be reorganized 
 
 \end{enumerate}
 
-% \subsubsection{Animation}
+\citeauthor{Muehlenhaus2014} also mentions differnt types of map animations. He says weather forecasts are the most common use case for map animations. Thus deriving the term temporal animation for this kind of animation seems appropriate. Albeit showing change over time seems trivial, people do not always interpret the resulting animation accurately. He suggests the use of temporal animations for showing broad patterns of change in a dataset. However, the animation should either show broad changes in a small scale or detailed changes in a large scale. This heavily impacts the user's perception and interpretation of the animation, including "change blindness". This means, that obvious changes in a map are missed due to focusing something else in the map. In order to combat the problem of change blindness, he \citeauthor{Muehlenhaus2014} names three different design principles \iacite{Muehlenhaus2014}:
 
-% Mit Hilfe von Animation können Position, Größe, Form und/oder die Farbe eines Objektes auf eine natürlich Art und Weise geändert über die Zeit hinweg verändert werden. Es bietet sich an, Transition zu animieren und somit dafür zu sorgen, dass Änderungen wahrgenommen werden können. Forschungen zeigen, dass animierte Transitionen den Betrachter oder die Betrachterin orientiert halten können, das Lernen erleichtern, beim Fällen von Entscheidungen helfen und das Engagement beim Betrachten erhöhen. % 20, 24, 3, 9
-% Es gäbe auch die Möglichkeit Animation zu nutzen, um z.B. in einem Diagramm weitere Daten aus deinem Datenset zu vermitteln. Diese Möglichtkeit wird in dieser Arbeit jedoch nicht weiter behandelt.
-% Bei der Verwendung von Animationen, muss darauf geachtet werden, dass diese auch Nachteile mit sich bringen können, da eine Animation zeitlich gut abgestimmt sein muss, für den Betrachter oder die Betrachterin nicht zu komplex sein darf und nicht automatisch garantiert, dass das Erkennen von Zusammenhänge erleichtert wird. % 2,4,24
-% Sollten die animierten Transitionen zwischen Visualisierungen sorgfällig durchdacht sein, dann können sie die grafische Wahrnehmung für die Analyse jedoch deutlich erhöhen. Bewegung ist generell sehr effektiv, um die Aufmerksamkeit des Betrachters oder der Betrachterin zu erlangen und kann auch durch peripheres Sehen wahrgenommen werden, wodurch etwaige Punkte von Interesse direkt animiert werden sollten.  Nicht nur wirkt eine Animation anregend und emotional engagierend, sondern auch die Wahrnehmung wird verstärkt und Beziehungen zwischen unterschiedlichen Zuständen können aufgezeigt werden. % 17, 20, 16, 24, 25
+\begin{enumerate}
 
-% Die Schattenseiten von Animationen könnten auch sein, dass sie eine Quelle der Ablenkung darstellen, die Aufmerksamkeit auf ein unwichtiges Detail lenken oder zu falschen Interpretation verleiten. % 23
-% Wichtig ist es auch, dass die Animation eine angenehme Geschwindigkeit besitzen. Den zu langsame Animationen könnten für den Betrachter oder die Betrachterin werden und eine zu schnelle Animation könnten kaum hilfreich sein. Die Schnelligkeit hängt von der Komplexität der Komposition der Elemente und wie vertraut der Betrachter oder die Betrachterin mit der Visualisierung ist. Es gilt somit wie zuvor erwähnt die Art und Weise der Animation bewusst und überlegt festzulegen. % Find good animation speed for app in literatur
+\item \textbf{Animation duration} should be kept short in order to not overwhelm a user's short-term memory. Temporal animations should not take longer than 30 seconds to a minute, especially when showing changes in data, which are not narrative in nature. If this principle is ignored, data retention will be nullified \iacite{Muehlenhaus2014}.
 
-% Aufgrund des großen Design-Raums gibt es bereits empfohlene Leitlinien für das Erstellen von Animationen. Zongker und Salesin % 27
-% schlagen vor, dass jede Bewegung eine Bedeutung haben soll und man Prinzipien meiden sollte, welche empfehlen Elemente zu quetschen oder zu dehnen. Jede Art von Übertreibung sollte vermieden werden. Auch empfehlen sie, dass während einer Animation nur eine Aktion zu einem Zeitpunkt ausgeführt wird. Für Transitionen empfiehlt der Psychologe Tversky et al % 24
-% zwei Prinzipien. Das erste ist das Übereinstimmungs-Prinzip "Die Struktur und der Inhalt der externen Repräsentation soll zu der gewünschten Struktur und dem Inhalt der internen Repräsentation korrespondieren" und das Auffassungs-Prinzip "Die Struktur und der Inhalt einer externen Repräsentation soll ohne weiteres und exakt wahrzunehmen und begreifbar sein". Diese Prinzipien gehen mit Mackinlays Expressiveness-Kriterium für das automatisierten Erstellen von statischen Darstellungen einher.
+\item \textbf{Data simplification} denotes the amount of animated attributes used. Showing more than four attributes in an animation results in visual overstimulation \iacite{Ware2008}.
 
-% % Prinizipien für Animationen gibt es in 13!
-% % Diskussion der Prinzipien gibt es in 27!
+\item \textbf{Control} needs to be given to the user. This can be achieved in many ways, e.g. by providing a pause or play button for an animation \iacite{Muehlenhaus2014}.
+
+\end{enumerate}
+
+Another type of animation \citeauthor{Muehlenhaus2014} mentions is the so called zoom animation. This type basically follows the main visual information seeking mantra of \citeauthor{Shneiderman1996}. If the purpose of an animation is to show a specific part of the data, it should start off by giving an overview. The animation is either started programmatically or manually and animates the focus to a specific part of the data. Control can ge given to the user in form of freely moving around in the map or providing zoom buttons.
+
+However, the mentioned types of animations are only based on a single visualization. This thesis will use animation in a transition of one type of map visualization to another. First, this should help to understand how the map is created. Second, some map visualizations are based on aggregations and therefore, the animation should show if this aggregation is understandable and interpretable.
