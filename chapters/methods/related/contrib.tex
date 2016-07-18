@@ -21,7 +21,7 @@ SandDance features an approach of showing a grid as visualization, where all dat
 Chapter \ref{s:dot} on page \pageref{s:dot} discusses the concept of dot maps in detail. This kind of thematic map can be used in combination with a one-to-one relation ship and show every item in the dataset as a single dot on the map giving an overview of the whole dataset including its geographical distribution.
 
 \ditem{Particle attractor} \hfill \\
-Figure \ref{fig:particle-attractor} on page \pageref{fig:particle-attractor} sketches the concept of showing all data items around a particle attractor.
+Figure \ref{fig:particle-attractor} on page \pageref{fig:particle-attractor} sketches the concept of showing all data items around a particle attractor as an overview.
 
 \begin{figure}[!htb]
 \centering
@@ -68,8 +68,16 @@ However, starting with a particle attractor as an overview, it is also possible 
 
 The first method would yield animated creations, with a very basic approach when changing the visual appearance. All particles would draw upcoming visualizations every time, without considering some kind of transition from the first to the second one. The second approach can be used to initially draw the first thematic map when no other visualization is given. Changing the visual appearance if a thematic map is already shown, the mentioned transition methods can be used.
 
-%https://imgur.com/eRDNsj3
-Considering the transition from a dot map to any other type of thematic map, the aggregation needs to be animated. Figure \ref{} on page \pageref{} shows nine different ways of how particles are able to fit in or interact with a perimeter of a given abstract shape. This heavily influences the movement of particles and the readability of the map. Aggregation can not only be done by moving the particle to their new aggregated shape. It could also be accomplished by using the concept of visual sedimentation, but it would also inherit its major weakness of not showing a static when using static data. When using the concept of SandDance of building aggregated shapes with units, a map will suffer from overplotting in high density region, thus leading to visual clutter. Therefore most of the shown unit design strategies will be unusable in combination with certain thematic maps, e.g. proportional symbol maps.
+\begin{figure}[!htb]
+\centering
+\includegraphics[height=5cm]{images/methods/related/strategies.png}
+\caption[
+    Particle design strategies to fit in or interact with a perimeter.
+]{Particle design strategies to fit in or interact with a perimeter.}
+\label{fig:particle-design-strategies}
+\end{figure}
+
+Considering the transition from a dot map to any other type of thematic map, the aggregation needs to be animated. Figure \ref{fig:particle-design-strategies} on page \pageref{fig:particle-design-strategies} shows nine different ways of how particles are able to fit in or interact with a perimeter of a given abstract shape. This heavily influences the movement of particles and the readability of the map. Aggregation can not only be done by moving the particle to their new aggregated shape. It could also be accomplished by using the concept of visual sedimentation, but it would also inherit its major weakness of not showing a static when using static data. When using the concept of SandDance of building aggregated shapes with units, a map will suffer from overplotting in high density region, thus leading to visual clutter. Therefore most of the shown unit design strategies will be unusable in combination with certain thematic maps, e.g. proportional symbol maps.
 
 Table \ref{tab:transition-table} on page \pageref{tab:transition-table} shows some concepts of animated transitions between visual appearances. Every concept is described with an abbreviation in the table which is explained in detail in the description list below.
 
