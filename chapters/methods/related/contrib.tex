@@ -71,7 +71,7 @@ The first method would yield animated creations, with a very basic approach when
 %https://imgur.com/eRDNsj3
 Considering the transition from a dot map to any other type of thematic map, the aggregation needs to be animated. Figure \ref{} on page \pageref{} shows nine different ways of how particles are able to fit in or interact with a perimeter of a given abstract shape. This heavily influences the movement of particles and the readability of the map. Aggregation can not only be done by moving the particle to their new aggregated shape. It could also be accomplished by using the concept of visual sedimentation, but it would also inherit its major weakness of not showing a static when using static data. When using the concept of SandDance of building aggregated shapes with units, a map will suffer from overplotting in high density region, thus leading to visual clutter. Therefore most of the shown unit design strategies will be unusable in combination with certain thematic maps, e.g. proportional symbol maps.
 
-Table \ref{} on page \pageref{} shows some concepts of animated transitions between visual appearances. Every concept is described with an abbreviation in the table which is explained in detail in the description list below.
+Table \ref{tab:transition-table} on page \pageref{tab:transition-table} shows some concepts of animated transitions between visual appearances. Every concept is described with an abbreviation in the table which is explained in detail in the description list below.
 
 \begin{table}[!htp]
     \begin{tabular}{M{22mm}||M{22mm} | M{22mm} | M{22mm} | M{22mm} | M{22mm} N}
@@ -82,20 +82,38 @@ Table \ref{} on page \pageref{} shows some concepts of animated transitions betw
 
     Dot Map                 & Linear        & ~       & CB-Linear                       & Color-Linear              & CB-Linear         &\\[4ex] \hline
 
-    Proportional Symbol Map & Dot        & CB-Linear       & ~                       & Dot              & Dot         &\\[4ex] \hline
+    Proportional Symbol Map & Dot        & CB-Linear       & ~                       & Dot, Shape              & Dot, Symbol         &\\[4ex] \hline
 
-    Choropleth Map          & Dot        & Color-Linear       & Dot                       & ~              & Dot         &\\[4ex] \hline
+    Choropleth Map          & Dot        & Color-Linear       & Dot, Shape                       & ~              & Dot, Shape         &\\[4ex] \hline
 
-    Cartogram               & Dot        & CB-Linear       & Symbol                       & Dot              & ~         &\\[4ex]
+    Cartogram               & Dot        & CB-Linear       & Dot, Symbol                       & Dot, Shape              & ~         &\\[4ex]
     \end{tabular}
-    \caption {Table Caption}
+    \caption{Transition table showing a transition from a given visualization (column) to any upcoming visualization (rows)}
+    \label{tab:transition-table}
 \end{table}
 
+\begin{description}
 
+\item[CB-Linear] \hfill \\
+Centroid-based linear transition denotes, that particles move to their geographical centroid and aggregate after moving. The aggregation can be accomplished with any kind of fitting or interacting with a perimeter.
 
+\item[Color-Linear] \hfill \\
+Color-linear transition can be implemented in two different ways:
+\begin{enumerate}
+\item Each particle leaves a blur of colour in its area. If more than one particle exists in a certain enumeration unit, the particles blur the area consecutively. Thus each particle increases the color intensity of the enumeration unit.
+\item The particles simply fade out and the enumeration units gets colored.
+\end{enumerate}
 
+\item[Dot] \hfill \\
+Dot-based transition means a simple linear transition to the dot map. The desired upcoming visualization is then animated with the dot map as starting point. Therefore this transition implies two transitions.
 
+\item[Linear] \hfill \\
+This transition is characterized by an exact linear transition according to the spatial location.
 
+\item[Shape] \hfill \\
+Animating shape transition from e.g. a proportional symbol to an enumeration unit is abbreviated with "Shape" in the table.
 
+\item[Symbol] \hfill \\
+Animating the symbol is close related to animate the shape, except that the desired visualization is not based upon enumeration units, therefore giving it a separate name seems appropriate.
 
-
+\end{description}
