@@ -71,20 +71,31 @@ The first method would yield animated creations, with a very basic approach when
 %https://imgur.com/eRDNsj3
 Considering the transition from a dot map to any other type of thematic map, the aggregation needs to be animated. Figure \ref{} on page \pageref{} shows nine different ways of how particles are able to fit in or interact with a perimeter of a given abstract shape. This heavily influences the movement of particles and the readability of the map. Aggregation can not only be done by moving the particle to their new aggregated shape. It could also be accomplished by using the concept of visual sedimentation, but it would also inherit its major weakness of not showing a static when using static data. When using the concept of SandDance of building aggregated shapes with units, a map will suffer from overplotting in high density region, thus leading to visual clutter. Therefore most of the shown unit design strategies will be unusable in combination with certain thematic maps, e.g. proportional symbol maps.
 
+Table \ref{} on page \pagref{} shows some concepts of animated transitions between visual appearances. Every concept is described with an abbreviation in the table which is explained in detail in the description list below.
+
 \begin{table}[!htp]
     \begin{tabular}{M{22mm}||M{22mm} M{22mm} M{22mm} M{22mm} M{22mm}}
 
     ~                       & Overview & Dot Map & Proportional Symbol Map & Choropleth Map & Cartogram \\[4ex] \hline \hline
 
-    Overview                & ~        & ~       & ~                       & ~              & ~         \\[4ex]
+    Overview                & ~        & Linear       & Dot                       & Dot              & Dot         \\[4ex]
 
-    Dot Map                 & ~        & ~       & ~                       & ~              & ~         \\[4ex]
+    Dot Map                 & Linear        & ~       & CB-Linear                       & Color-Linear              & CB-Linear         \\[4ex]
 
-    Proportional Symbol Map & ~        & ~       & ~                       & ~              & ~         \\[4ex]
+    Proportional Symbol Map & Dot        & CB-Linear       & ~                       & Dot              & Dot         \\[4ex]
 
-    Choropleth Map          & ~        & ~       & ~                       & ~              & ~         \\[4ex]
+    Choropleth Map          & Dot        & Color-Linear       & ~                       & ~              & ~         \\[4ex]
 
-    Cartogram               & ~        & ~       & ~                       & ~              & ~         \\[4ex]
+    Cartogram               & Dot        & CB-Linear       & Symbol                       & Dot              & ~         \\[4ex]
     \end{tabular}
     \caption {Table Caption}
 \end{table}
+
+
+
+
+
+
+
+
+
