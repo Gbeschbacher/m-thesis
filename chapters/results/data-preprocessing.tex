@@ -1,0 +1,50 @@
+As the section before already showed, two different files are now accessible. However, in order to actually use these files, some preprocessing is needed. This chapter is divided into three parts. The first one will dicsuss the preparation of the Superstore-Sale dataset, the second one will explain how to get boundaries out of the downloaded zip-file and the third one will demonstrate how these two files can be merged.
+
+\subsubsection{Preprocessing Superstore-Sale}
+First of all, some numbers in this dataset are shown in a different format. Converting all numbers to the same format is essential.
+Secondly, as already mentioned, the dataset only features attributes like country, city, state and postal code. In order to show the items on the map, it is necessary to expand each item with longitude and latitude. Listing \ref{lst:data-prep-latlong} on page \pageref{lst:data-prep-latlong} shows how the expansion can be accomplished when using NodeJs\footnote{See \href{https://nodejs.org/en/}{NodeJs} for more information.}. The listing uses Nominatim\footnote{See \href{https://nominatim.openstreetmap.org/}{Nominatim} for more information.} to decode geographical location strings to longitude and latitude. Furthermore listing \ref{lst:data-prep-latlong} shows, that each item is extended two more attributes: \textit{CountyId} and \textit{StateId}. These attributes denote the geographical id to the corresponding county and state name. As a starting point, a file containing all zip-codes with their corresponding ids was needed. Jgoodall provides such a file in his us-map repository\footnote{See \href{https://github.com/jgoodall/us-maps/}{his repository} for more information.}. Reading this file results in a lookup dictionary, where it is possible to search each postal code for its corresponding ids. However, Superstore-Sale does not provide a leading zero if a postal code is less than five characters, leading to a special case, which has to be considered.
+
+\begin{lstlisting}[caption={Preprocessing Superstore-Sale with latitude and longitude}, label={lst:data-prep-latlong}]
+
+let zipCodes = require("./zip-codes.json");
+// Add latitude and longitude if there is a geo information
+if (item.hasOwnProperty("Country") && item.hasOwnProperty("City") && item.hasOwnProperty("State")) {
+    let url = `http://nominatim.openstreetmap.org/search?email=${config.email}&format=json&`;
+    url += `country=${item.Country}&`;
+    url += `state=${item.State}&`;
+    url += `city=${item.City}`;
+
+    const response = request("GET", url, {
+        "headers": {
+            "user-agent": "University of Applied Sciences Salzburg - Masterthesis Particles - MMT-M2014"
+        }
+    });
+    const data = JSON.parse(response.getBody());
+    item.Latitude = data[0].lat;
+    item.Longitude = data[0].lon;
+}
+
+if (item.hasOwnProperty("Postal Code")) {
+    let currentZip = item["Postal Code"];
+    if(zipCodes.hasOwnProperty(currentZip)){
+        let codes = zipCodes[currentZip];
+        item.CountyId = codes.countyId[0];
+        item.StateId = codes.stateId;
+    } else {
+        // superstore has no leading 0 of postal codes if code length < 5;
+        currentZip = "0".concat(currentZip)
+        if(zipCodes.hasOwnProperty(currentZip)){
+            let codes = zipCodes[currentZip];
+            item.CountyId = codes.countyId[0];
+            item.StateId = codes.stateId;
+        } else {
+            console.log(`\${currentZip} not found!`);
+        }
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Preprocessing Cartographic Boundaries}
+
+
+\subsubsection{Merging Superstore-Sale with Cartographic Boundaries}
