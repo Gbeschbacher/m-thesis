@@ -3,150 +3,54 @@
 \usepackage{listings}
 
 % --- color definitions ---
-\definecolor{mktext}    {RGB}{000, 043, 054}
-\definecolor{mktarget}  {RGB}{211, 054, 130}
-\definecolor{mkstring}  {RGB}{000, 127, 127}
-\definecolor{mkvariable}{RGB}{038, 139, 210}
-\definecolor{mkkeyword} {RGB}{133, 153, 000}
-\definecolor{mklinecont}{RGB}{220, 050, 047}
-\definecolor{mkcomment} {RGB}{088, 110, 117}
-\definecolor{mkcommand} {RGB}{042, 161, 152}
+\definecolor{pink}{RGB}{211, 054, 130}
+\definecolor{yellow}{RGB}{218, 201, 28}
+\definecolor{blue}{RGB}{21, 135, 160}
 
-\definecolor{keycolor}{RGB}{172, 42, 42}
-\definecolor{mbleu}{RGB}{64,96,127}
-\definecolor{vimvert}{RGB}{46, 139, 87}
+% \definecolor{keycolor}{RGB}{172, 42, 42}
+% \definecolor{mbleu}{RGB}{64,96,127}
+% \definecolor{vimvert}{RGB}{46, 139, 87}
 
-\lstdefinestyle{global}{
-  basicstyle=\ttfamily\scriptsize\color{black!90},%
-  stringstyle=\itshape\color{magenta},%
-  showstringspaces=false,%
-  keywordstyle={\bfseries\color{keycolor}},%
-  commentstyle=\color{blue}\slshape,%
-  framexleftmargin=1mm,%
-  backgroundcolor=\color{black!2},%
-}
 
 \lstdefinestyle{makefile}{
-  otherkeywords={.SUFFIXES},
-  morekeywords={SUFFIX, CPP_,},
-  moredelim=[is][\color{mbleu}]{/*}{*/},
-  style=global,%
-  morecomment=[l][commentstyle]{\#},%
-  emphstyle={\color{vimvert}},%
-  moredelim=[s][\color{vimvert}]{\$(}{)}%
+  moredelim=[is][\color{pink}]{/*}{*/},
+  morecomment=[l][commentstyle]{\#},
+  emphstyle={\color{pink}},
+  moredelim=[s][\color{pink}]{\$(}{)}.
+  keywordstyle={\bfseries\color{pink}},
+}
+
+\lstdefinelanguage{JavaScript} {
+  morekeywords={
+    break,const,continue,delete,do,while,export,for,in,function,
+    if,else,import,in,instanceOf,label,let,new,return,switch,this,
+    throw,try,catch,typeof,var,void,with,yield
+  },
+  sensitive=false,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[d]'
+}
+
+\lstset{
+  frame=tb,
+  framesep=5pt,
+  extendedchars=true,
+  basicstyle=\footnotesize\ttfamily,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\footnotesize,
+  numbersep=9pt,
+  tabsize=2,
+  breaklines=true,
+  showtabs=false,
+  captionpos=b,
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  xleftmargin=5pt,
+  xrightmargin=5pt
 }
 
 \renewcommand\lstlistlistingname{List of Listings}
 
-
-% % --- auxiliary macros for styles ---
-% \newcommand\mktextstyle{\color{mktext}}
-% \newcommand\mktargetstyle{\color{mktarget}}
-% \newcommand\mkstringstyle{\color{mkstring}}
-% \newcommand\mkvariablestyle{\color{mkvariable}}
-% \newcommand\mkkeywordstyle{\color{mkkeyword}}
-% \newcommand\mklinecontstyle{\color{mklinecont}}
-% \newcommand\mkcommentstyle{\slshape\color{mkcomment}}
-% \newcommand\mkcommandstyle{\color{mkcommand}}
-
-% \makeatletter
-% % --- context switches ---
-% \newif\iftarget@make@
-% \newif\iflinecont@make@
-
-% % --- hook into listings to keep track of context ---
-% \lst@AddToHook{InitVarsBOL}
-% {%
-%   \iflinecont@make@%
-%     \global\target@make@false%
-%   \else
-%     \global\target@make@true%
-%   \fi
-%   \global\linecont@make@false%
-% }
-
-% \lst@AddToHook{Output}
-% {%
-%   \ifnum\lst@mode=\lst@Pmode%
-%       \iftarget@make@%
-%         \gdef\globalstyle@make{\the@lststyle}%
-%         \def\lst@thestyle{\mktargetstyle}%
-%       \fi
-%     \fi
-%   \ifnum\lst@mode=\lst@Pmode% only test for keyword if we're in "processing" mode
-%     \lsthk@DetectKeywords%
-%   \fi
-% }
-
-% \lstdefinestyle{make-pretty}
-% {
-%   upquote=true,
-%   showstringspaces=false,
-%   basicstyle=\ttfamily\scriptsize\mktextstyle,
-%   sensitive=true,
-%   alsoletter=.-,
-%   keywords = {.CC,.CFLAGS,.PHONY,.SUFFIXES,SUFFIX,CPP_},
-%   keywordstyle = \mkkeywordstyle,
-%   moredelim=[is][\mkvariablestyle(\aftergroup\closingparen@make]{(}{)},
-%   moredelim=*[l][\mkcommandstyle]{\^^I},
-%   morestring=[b]',
-%   morestring=[b]",
-%   stringstyle=\mkstringstyle,
-%   literate =
-%     {\%}{{{\mkvariablestyle\%}}}1
-%     {\$}{{{\mkvariablestyle\$}}}1
-%     {\$*}{{{\mkvariablestyle\$*}}}2
-%     {\\}{{{\mklinecontstyle\lstum@backslash}}}1,
-%   MoreSelectCharTable =
-%     \processColon@make
-%     \processEqual@make
-%     \processBackslash@make
-%     \processTab@make,
-%   morecomment = [l]{\#},
-%   commentstyle = \mkcommentstyle,
-% }
-
-% % --- helper macros ---
-% \newcommand\closingparen@make{{\mkvariablestyle)}}
-
-% \newcommand\processEqual@make
-% {%
-%   \lst@DefSaveDef{`=}\equal@make%
-%   {%
-%     \equal@make%
-%     \global\target@make@false%
-%     \def\lst@thestyle{\globalstyle@make}%
-%   }%
-% }
-
-% \newcommand\processColon@make
-% {%
-%   \lst@DefSaveDef{`:}\colon@make%
-%   {%
-%     \colon@make%
-%     \global\target@make@false%
-%     \def\lst@thestyle{\globalstyle@make}%
-%   }%
-% }
-
-% \newcommand\processBackslash@make
-% {%
-%   \lst@DefSaveDef{`\\}\backslash@make%
-%   {%
-%     \backslash@make%
-%     \ifnum\lst@mode=\lst@Pmode%
-%       \global\linecont@make@true%
-%       \def\lst@thestyle{\globalstyle@make}%
-%     \fi
-%   }%
-% }
-
-% \newcommand\processTab@make
-% {%
-%   \lst@DefSaveDef{`^^I}\tabchar@make%
-%   {%
-%     \tabchar@make%
-%     \global\target@make@false%
-%   }%
-% }
-% \makeatother
