@@ -6,31 +6,32 @@
 \definecolor{pink}{RGB}{211, 054, 130}
 \definecolor{yellow}{RGB}{218, 201, 28}
 \definecolor{blue}{RGB}{21, 135, 160}
-
-% \definecolor{keycolor}{RGB}{172, 42, 42}
-% \definecolor{mbleu}{RGB}{64,96,127}
-% \definecolor{vimvert}{RGB}{46, 139, 87}
-
+\definecolor{grey}{RGB}{160, 160, 160}
 
 \lstdefinestyle{makefile}{
   moredelim=[is][\color{pink}]{/*}{*/},
   morecomment=[l][commentstyle]{\#},
   emphstyle={\color{pink}},
-  moredelim=[s][\color{pink}]{\$(}{)}.
-  keywordstyle={\bfseries\color{pink}},
+  moredelim=[s][\color{blue}]{\$(}{)}
 }
 
 \lstdefinelanguage{JavaScript} {
   morekeywords={
     break,const,continue,delete,do,while,export,for,in,function,
     if,else,import,in,instanceOf,label,let,new,return,switch,this,
-    throw,try,catch,typeof,var,void,with,yield
+    throw,try,catch,typeof,var,void,with,yield,of
   },
+  ndkeywords={class, export, boolean, throw, implements, import, this},
   sensitive=false,
   morecomment=[l]{//},
   morecomment=[s]{/*}{*/},
   morestring=[b]",
-  morestring=[d]'
+  morestring=[d]',
+  keywordstyle=\color{pink}\bfseries,
+  stringstyle=\color{yellow}\ttfamily,
+  ndkeywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{grey}\ttfamily,
+  identifierstyle=\color{black}
 }
 
 \lstset{
