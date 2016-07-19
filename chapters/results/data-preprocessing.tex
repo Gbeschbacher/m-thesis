@@ -37,8 +37,6 @@ if (item.hasOwnProperty("Postal Code")) {
             let codes = zipCodes[currentZip];
             item.CountyId = codes.countyId[0];
             item.StateId = codes.stateId;
-        } else {
-            console.log(`\${currentZip} not found!`);
         }
     }
 }
