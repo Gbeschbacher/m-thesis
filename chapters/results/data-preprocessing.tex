@@ -102,7 +102,6 @@ csv.fromPath("./path-to-preprocessed-superstore-sale.csv", {
 .on("data", function(item){
 
     let countyKey = `${item.StateId}${item.CountyId}`;
-    console.log("Item #", ++idx, countyKey);
     countyDict[countyKey] = ++countyDict[countyKey] || 1;
 
 })
