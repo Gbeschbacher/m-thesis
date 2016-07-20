@@ -4,7 +4,7 @@ The first subsection will explain the system's architecture in detail based on a
 
 
 \subsubsection{Application Architecture}
-Figure \ref{} on page \pageref{} gives an overview of the architecture in the form of a class diagram. However, the diagram shown and discussed in the master-thesis of \citeauthor{} looks quite different, although it is based on the same system. This is due to the relatively big system architecture and the different scopes of both theses. Showing and discussing all available classes, features and options for the application would go beyong the scope. The following list will briefly discuss the most important classes and their purposes:
+Figure \ref{} on page \pageref{} gives an overview of the architecture in the form of a class diagram. However, the diagram shown and discussed in the master-thesis of \citeauthor{Wanko2016} looks quite different, although it is based on the same system. This is due to the relatively big system architecture and the different scopes of both theses \iacite{Wanko2016}. Showing and discussing all available classes, features and options for the application would go beyong the scope. The following list will briefly discuss the most important classes and their purposes:
 
 % TODO: ADD DIA
 
@@ -21,7 +21,7 @@ If an animation is assigned to particles, it is stored in the \textit{AnimationQ
 \item[Canvas] \hfill \\
 This class is one of the main classes inside the application. It is needed to not compare it with an HTML-Canvas object. However, this class is responsible for creating the base-canvas of the web-application. Furthermore, it is used to change and update the visual appearance if any interaction happens. A key part of the canvas class is the render function shown in listing \ref{lst:canvas-render} on page \pageref{lst:canvas-render}. It starts off with calling the same function again as soon as possible. The caller-function \textit{requestAnimationFrame} ensures, that the next frame will only be shown if enough resources of the browser are available. Afterwards, all particles and visualisations are animated if something changed. The last line of the listing shows the \ac{Pixi}-renderer. Listing \ref{lst:canvas-autodecet-renderer} on page \pageref{lst:canvas-autodecet-renderer} shows its creation. It features the main canvas-size, background transparency, antialiasing and a lot of other options.
 
-\begin{lstlisting}[[language=JavaScript, caption={Render function of the canvas class.}, label={lst:canvas-render}]
+\begin{lstlisting}[language=JavaScript, caption={Render function of the canvas class.}, label={lst:canvas-render}]
     render() {
       this.requestFrameID = requestAnimationFrame(this.render.bind(this));
 
@@ -43,7 +43,7 @@ This class is one of the main classes inside the application. It is needed to no
     }
 \end{lstlisting}
 
-\begin{lstlisting}[[language=JavaScript, caption={Pixi's autodetect-renderer.}, label={lst:canvas-autodecet-renderer}]
+\begin{lstlisting}[language=JavaScript, caption={Pixi's autodetect-renderer.}, label={lst:canvas-autodecet-renderer}]
     this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {
         transparent: true,
         clearBeforeRender: true,
@@ -61,7 +61,7 @@ Creating an instance of \textit{Overview} will show all data items as unit-based
 \item[D3] \hfill \\
 This class is mainly used to wrap all functionality of the \ac{D3} library. It features functions like initializing the base-map as a \ac{SVG} and loading the needed TopoJSON data accordingly. Listing \ref{lst:d3-topojson} on page \pageref{lst:d3-topojson} features a key part of this class. It shows how TopoJSON is used on the client. The filter function passed to the first \textit{TopoJSON.mesh}-function specifies that only internal state borders should be drawn. Thus, coastlines will not be drawn to retain detail around small islands and inlets. The filter function passed to the second \textit{TopoJSON.mesh}-function extends the first one by only drawing each county boundary once. Thus, if two counties share the same border, it is only drawn once.
 
-\begin{lstlisting}[[language=JavaScript, caption={TopoJSON usage on the client with the adaption of merging all geographic information.}, label={lst:d3-topojson}]
+\begin{lstlisting}[language=JavaScript, caption={TopoJSON usage on the client with the adaption of merging all geographic information.}, label={lst:d3-topojson}]
         this.data.topojson.states = topojson.mesh(
             this.data.us,
             this.data.us.objects.states,
@@ -84,7 +84,7 @@ This class is mainly used to wrap all functionality of the \ac{D3} library. It f
 
 Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}-function shown in listing \ref{lst:d3-calculate-centroids} on page \pageref{lst:d3-calculate-centroids}. It calculates a look-up dictionary for the given level of detail for each data item. Thus, providing a huge performance boost when finding out the centroid of a unit later on.
 
-\begin{lstlisting}[[language=JavaScript, caption={Calculate a look-up dictionary for all data items depending on the level of detail.}, label={lst:d3-calculate-centroids}]
+\begin{lstlisting}[language=JavaScript, caption={Calculate a look-up dictionary for all data items depending on the level of detail.}, label={lst:d3-calculate-centroids}]
     calculateCentroids(levelOfDetail){
         const boundaries = this._topojson.feature(
             this.data.us,
