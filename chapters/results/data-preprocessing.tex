@@ -133,7 +133,7 @@ csv.fromPath("./path-to-preprocessed-superstore-sale.csv", {
 \end{lstlisting}
 %TC:endignore
 
-This listing yields a file which can be used in combination with the already created topojson file. Listing \ref{lst:data-acqu-topo4} on page \pageref{lst:data-acqu-topo4} is an updated version of listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1}. It extends the already mentioned task by combining the newly created aggregation file. The option \textit{--id-property} simply denotes the identification key for each item for both files. All \textit{--external-properties} needs a file as input parameter to look up \textit{--properties} which cannot be found in the original input file from the task. Thus, all \textit{--properties} listed in the task are available as a key-value pair later on.
+This listing yields a file which can be used in combination with the already created TopoJSON file. Listing \ref{lst:data-acqu-topo4} on page \pageref{lst:data-acqu-topo4} is an updated version of listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1}. It extends the already mentioned task by combining the newly created aggregation file. The option \textit{--id-property} simply denotes the identification key for each item for both files. All \textit{--external-properties} needs a file as input parameter to look up \textit{--properties} which cannot be found in the original input file from the task. Thus, all \textit{--properties} listed in the task are available as a key-value pair later on.
 
 %TC:ignore
 \begin{lstlisting}[style={makefile}, caption={Make task for merging a file with topojson}, label={lst:data-acqu-topo4}]

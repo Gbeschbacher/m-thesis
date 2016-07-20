@@ -1,0 +1,7 @@
+D3.js\footnote{See \href{https://d3js.org/}{d3js.org} for more information.} is a library based on JavaScript. It allows to bind arbitrary data to a \ac{DOM}, and apply transformations to the document afterwards. \ac{D3} makes use of \ac{HTML}, \ac{SVG} and \ac{CSS}. Using these web standards offers full capabilities of modern browsers. It includes powerful visualisation components and data-driven approach to \ac{DOM} manipulation. \ac{D3} is supposed to be really fast, supporting large datasets and dynamic behaviours for interaction and animation. The component-based architecture of \ac{D3} allows for code reuse. Furthermore, it allows for developing plugins rather easily.
+
+The practical application uses \ac{D3} for two differnt things:
+\begin{enumerate}
+\item The base map is drawn using \ac{D3} because it features a lot of different map projections, allows to use the client-side library of TopoJSON, and overall has a lot of useful interactions implemented already.
+\item All thematic maps based on aggregation are realised with \ac{D3} because of its use of \ac{SVG} and the interaction.
+\end{enumerate}
