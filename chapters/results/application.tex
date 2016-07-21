@@ -192,10 +192,10 @@ Drawing proportional symbols is done by using \ac{D3}. First of all, it does not
 %TC:endignore
 
 \item[ChoroplethMap] \hfill \\
-The implementation of this type of thematic map is a classified choropleth map. As all the other versions of aggregated thematic maps, the distinction between animated and static drawing is done. Listing \ref{lst:choropleth-part-draw} on page \pageref{lst:choropleth-part-draw} shows a small part of the \textit{draw}-function. If the \texit{animationCb} is truthy, all enumeration units are first coloured with a light grey, followed by a colour transition based on the orders of the unit.
+The implementation of this type of thematic map is a classified choropleth map. As all the other versions of aggregated thematic maps, the distinction between animated and static drawing is done. Listing \ref{lst:choropleth-part-draw} on page \pageref{lst:choropleth-part-draw} shows a small part of the \textit{draw}-function. If the \textit{animationCb} is truthy, all enumeration units are first coloured with a light grey, followed by a colour transition based on the orders of the unit.
 
 %TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={The draw-function of the ProportionalSymbolMap-class}, label={lst:choropleth-part-draw}]
+\begin{lstlisting}[language=JavaScript, caption={A small part of the draw-function of the ChoroplethMap-class}, label={lst:choropleth-part-draw}]
     if(this.isFunction(animationCb)){
         this[id]
         .attr("fill", "#D3D3D3")
@@ -223,10 +223,10 @@ The implementation of this type of thematic map is a classified choropleth map. 
 
 
 \item[Cartogram] \hfill \\
-The web-application implements a specific type of cartogram: a pseudo Demers cartogram. A true Demers cartogram would need links between adjacent features. However, the type of cartogram implemented tries to preserve locality instead of connectedness. Therefore, each square is located as close as possible to its origin without overlapping. In order to deliver this kind of information to the user, a collision detection with gravity is used to animate the position of each square. Listing \ref{lst:cartogram-part-draw} on page \pageref{lst:cartogram-part-draw} shows a small part of the \textit{draw}-function. It covers the part of initially drawing each square and afterwards starting the collision detection and the gravity.
+The web-application implements a specific type of cartogram: a pseudo Demers cartogram. A true Demers cartogram would need links between adjacent features. However, the type of cartogram implemented tries to preserve locality instead of connectedness. Therefore, each square is located as close as possible to its origin without overlapping. In order to deliver this kind of information to the user, a collision detection with gravity is used to animate the position of each square. Listing \ref{lst:cartogram-part-draw} on page \pageref{lst:cartogram-part-draw} shows a small part of the \textit{draw}-function. It covers the part of initially drawing each square and the part of starting the collision detection and the gravity.
 
 %TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={The draw-function of the pseudo Demers Cartogramm-class}, label={lst:cartogram-part-draw}]
+\begin{lstlisting}[language=JavaScript, caption={A small part of the draw-function of the pseudo Demers Cartogramm-class}, label={lst:cartogram-part-draw}]
     this.node = map.svg.append("g")
     .attr("id", `cartogram-${id}`)
     .selectAll("rect")
