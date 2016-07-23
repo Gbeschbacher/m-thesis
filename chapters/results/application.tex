@@ -121,7 +121,21 @@ Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}
 \end{lstlisting}
 %TC:endignore
 
-% SYMBOL SCALE AND COLOR SCALE TO SHOW
+Furthermore, this class exposes two mandatory functions used to create aggregated thematic maps. Listing \ref{lst:d3-scales} on page \pageref{lst:d3-scales} features the scaling methods used in the application. The \textit{symbolScale}-method is based on a log-scaling with an input domain from 1 to 100 mapped to the output range 0 to 20. If an input value exceeds the given domain, it is scaled and interpolated automatically respectively to the log-scale and a higher output range. The colour-scale is based on a quantile-scale with 9 desired classes. The input domain of this method is 0 to 36 in steps of four. This is because the value representing the amount of orders of a specific enumeration unit is first scaled to the symbol-size and the scaled value serves as an input value for the colour scale. In addition, the values from the input domain are classified into 9 different sections, where each one of them represents colour respectively to the user-defined colour scheme.
+
+Both scaling-methods do not change throughout the application, even when changing the level of detail. As a result, the symbol size and colour used are not linked to the level of detail, but rather map the a particular input value always to the same output value.
+
+%TC:ignore
+\begin{lstlisting}[language=JavaScript, caption={Symbol-scale and colour-scale used for aggregated thematic maps.}, label={lst:d3-scales}]
+    this.symbolScale = this._d3.scale.log()
+    .domain([1, 100])
+    .range([0, 20]);
+
+    this.colorScale = this._d3.scale.quantile()
+    .domain(this._d3.range(10).map( i => i * 4 ))
+    .range(this._d3.range(9));
+\end{lstlisting}
+%TC:endignore
 
 \item[BaseMap] \hfill \\
 This is the second class inheriting from the \textit{Visualization} class. It features a single object of the \ac{D3} class. Therefore, it is possible that all deriving classes share the same object of \ac{D3} and thus, all its features and settings. Changing the level of detail of the \textit{BaseMap} will affect the map initialised in \textit{\ac{D3}} and hence, all deriving classes are using the same base-map again. This class is mainly used to share the same object of \ac{D3} for all children.
@@ -265,11 +279,74 @@ This container contains all particles and ensures, that they are animated in the
 \item[Particle] \hfill \\
 A particle is inherits the functionality of \textit{PIXI.Graphics} and contains information about its position, alpha value, and the data it represents. It exposes methods to draw a particle onto the map and to animate it.
 
+\item[TransitionManager] \hfill \\
+If the type of visualisation changes and transition type is selected, an instance of this class gets called. It handles all animations concerning the transition. The exposed \textit{animate}-function needs two parameters as strings: the type of the current visualisation and the type of the upcoming one. Listing \ref{lst:tm-dot-cartogram} on page \pageref{lst:tm-dot-cartogram} features the transition from a dot-map to a cartogram. First, all particles are animated to their centroid according to the chosen level of detail. Second, the upcoming visualisation is drawn with some parameters, e.g. a boolean value indicating if the current visualisation is already a cartogram or not, or the already mentioned \textit{animationCb}-function in form of an anonymous function. It gets executed after the upcoming visualisation is drawn.
+
+%TC:ignore
+\begin{lstlisting}[language=JavaScript, caption={Animate the transition from a dot-map to a cartogram.}, label={lst:tm-dot-cartogram}]
+    case 'dot_cartogram':
+        animateParticleToCentroid(this.currentViz, this.canvas.levelOfDetail);
+        this.canvas.render();
+
+        upcomingViz.obj = this.canvas.drawCartogram(
+            null,
+            this.currentViz.constructor.name === "Cartogram",
+            () => {
+                this.currentViz.hide(false, true);
+                this.fadeOutParticles();
+            }
+        );
+        upcomingViz.type = 'cartogram';
+        resolve(upcomingViz);
+        break;
+\end{lstlisting}
+%TC:endignore
+
 \end{description}
 
-% As one can see, all thematic maps based on aggregation keep a reference of the data shown. Therefore, changing the level of detail first checks, if the map needs to be updated or not.
+Another aspect of all thematic maps based on aggregation is the stored reference of the data shown. The allocation of \textit{this[id] = \ldots} in the mentioned listings depicts this fact. This reference is used to determine if the data on the map needs to be updated and redrawn or not.
 
 \subsubsection{Interaction}
-% transition
-% level of detail
-% changing visual appearance
+The implemented application only features basic interaction methods. Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows a navigation bar and the configurable settings. Changing the visual appearance and the type of transition can be achieved by interacting with the bar. If changing any kind of configuration is desired, e.g. the speed of moving particles or the level of detail shown, this can be done by using the graphical user interface to the right.
+At the moment, each map has only one transition implemented to another type of map implemented. The starting point for each transition is the dot map. It has four different transitions overall, where each transition belongs to exactly one type of visualisations. Animating the transition from a proportional symbol map to a choropleth map uses the dot map as intermediate stage. Hence, the symbols are removed and the transition to the dot map is done first. If the animation is finished, another transition is triggered, which leads to the desired visualisation. The class handling this behaviour is already described in the section before.
+
+\subsubsection{Showcase}
+Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases the web application. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the proportional symbol map, \ref{f:showcase-choropleth} the choropleth map and \ref{f:showcase-cartogram} the cartogram.
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/map_dot.png}
+        \caption[Particle-based dot map]%
+        {{\small Particle-based dot map}}
+        \label{f:showcase-dot}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/map_psm.png}
+        \caption[Proportional symbol map]%
+        {{\small Proportional symbol map}}
+        \label{f:showcase-psm}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/map_choropleth.png}
+        \caption[Choropleth map]%
+        {{\small Choropleth map}}
+        \label{f:showcase-choropleth}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/map_cartogram.png}
+        \caption[Pseudo-Demers cartogram]%
+        {{\small Pseudo-Demers cartogram}}
+        \label{f:showcase-cartogram}
+    \end{subfigure}
+    \caption[The implemented web-application showing four different types of thematic maps and interaction possibilities.]
+    {\small The implemented web-application showing four different types of thematic maps and interaction possibilities.}
+    \label{f:showcase-overall}
+\end{figure*}
