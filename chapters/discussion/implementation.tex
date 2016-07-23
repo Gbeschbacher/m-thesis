@@ -1,3 +1,20 @@
+The web application consists of two main parts: the first one is the data acquisition and preparation and the second one is the transition manager handling the animation. The first subsection will discuss the restrictions, advantages and disadvantages coming along with the concept used. This discussion is followed by pointing out the strengths and weaknesses of using the transition manager. The discussion is concluded with an analysis of the implementation with the framework mentioned presented by \citeauthor{Munzner2014} in chapter \ref{s:basics} on page \pageref{s:basics}.
+
 \subsubsection{Data Acquisition and Data Preparation}
+Automatic data acquisition and preparation with GNU-Make is very powerful and flexible. The primal strength of it is that writing a \textit{Makefile} creates a machine-readable documentation for the whole workflow. Recording each step in the process enables reproducibility later on.
+Thinking of GNU-Make as a dependency graph is key. Unlike a linear and sequential script, a dependency graph is more modular. For example, a \textit{Makefile} is augmentable with deriving multiple data files from the same zip archive without repeating the download of the archive. Thus, using GNU-Make fulfills already two requirements: it scales very well if using multiple data files from different data sources is desired and modularity is provided with the ability of defining tasks for different concerns. However, one major weakness of GNU-Make is its syntax and possible complexity. Putting the facts into comparison, the advantages outweigh the disadvantages.
+
+% talk about data preparation and its limitations because of the way the aggregation is prepared and later on implemented (missing information compared to dots)
+% advantage: processing time of aggregation is only done once (when loading the file)
+% disadvantage: missing information about single particles because of the use of aggregation; using two different files for showing one phenomenon; the concept of using two data-files is not good: switching visual appearances also switch their base-data and therefore is hard to provide same interaction concepts to different visualisations.
 
 \subsubsection{Animated Transition}
+%
+
+\subsubsection{Analysis-Framework}
+
+\subsubsection{Used Technology}
+% d3 acceptable but scaling needs some considerations
+% es6 + babel = bad choice because performance is not well
+% pixi for using particles is fine;
+%
