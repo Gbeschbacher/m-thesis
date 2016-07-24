@@ -79,7 +79,7 @@ The first method would yield animated creations, with a very basic approach when
 
 Considering the transition from a dot map to any other type of thematic map, the aggregation needs to be animated. Figure \ref{fig:particle-design-strategies} on page \pageref{fig:particle-design-strategies} shows nine different ways of how particles are able to fit in or interact with a perimeter of a given abstract shape. This heavily influences the movement of particles and the readability of the map. Aggregation can not only be done by moving the particle to their new aggregated shape. It could also be accomplished by using the concept of visual sedimentation, but it would also inherit its major weakness of not showing a static when using static data. When using the concept of SandDance of building aggregated shapes with units, a map will suffer from overplotting in high-density region, thus leading to visual clutter. Therefore most of the shown unit design strategies will be unusable in combination with certain thematic maps, e.g. proportional symbol maps.
 
-Table \ref{tab:transition-table} on page \pageref{tab:transition-table} shows some concepts of animated transitions between visual appearances. Every concept is described with an abbreviation in the table which is explained in detail in the description list below.
+Table \ref{tab:transition-table} on page \pageref{tab:transition-table} shows some concepts of animated transitions between visual appearances. Every concept is described with an abbreviation in the table which is explained in detail in the description list below. If the table mentions two methods in a cell, it means that there are two possible options available as an animated transition method.
 
 \begin{table}[!htp]
     \begin{tabular}{M{22mm}||M{22mm} | M{22mm} | M{22mm} | M{22mm} | M{22mm} N}
@@ -113,7 +113,7 @@ Color-linear transition can be implemented in two different ways:
 \end{enumerate}
 
 \item[Dot] \hfill \\
-Dot-based transition means a simple linear transition to the dot map. The desired upcoming visualisation is then animated with the dot map as starting point. Therefore this transition implies two transitions.
+Dot-based transition means a simple linear transition to the dot map. The desired upcoming visualisation is then animated with the dot map as starting point. Therefore this transition implies two transitions. For example, \textit{Overview} to \textit{Proportional Symbol Map} is listed with a \textit{Dot}-transition in the table. This means that all particles are first animated with a linear transition to the dot map, followed by a centroid-based linear transition to the proportional symbol map. Thus, if the table denotes \textit{Dot} as an available transition method, the upcoming transition needs to be looked up in the dot map column in order to know the full transition.
 
 \item[Linear] \hfill \\
 This transition is characterized by an exact linear transition according to the spatial location.
