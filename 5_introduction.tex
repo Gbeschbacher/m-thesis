@@ -3,8 +3,12 @@
 
 \subsection{Problem Statement and Contribution}
 Today, maps can be created and used by any individual from virtually any location on earth and for any purpose. This new mapmaking paradigm often leads to misuse of different types of maps, even though cartographic principles remain unchanged \iacite{Gartner2013}.
+
 % TODO: mention data-overload issue again in combination with spatial sensors and the missing evaluation through visualisation of these.
-Thus, this thesis aims at the creation of a visualisation tool that animates the transition between different thematic maps. The system should help users to identify an appropriate visual representation according to their task. The main requirement for the design and implementation of the tool are:
+
+Thus, this thesis aims at the creation of a visualisation tool that animates the transition between different thematic maps. The system should help users to identify an appropriate visual representation according to their task. The identification of such a representation is based on pointing out the benefits and drawbacks of each type of thematic map. The knowledge of the basic principles should lead to an appropriate visualisation to the given data.
+
+The main requirement for the design and implementation of the tool are:
 \begin{itemize}
 \item The dataset used to show on a map should contain more than 5000 items
 \item There should at least be the choice between three different kinds of thematic maps
@@ -12,11 +16,11 @@ Thus, this thesis aims at the creation of a visualisation tool that animates the
 \item Modularity of the system is mandatory in order to extend it with different types of transitions and visualisation
 \end{itemize}
 Currently available tools do not meet these requirements to a satisfactory degree and therefore, this thesis focuses on the following question:
-which tasks can be supported by particle aggregation in a thematic map and how can an animated aggregation be realized?
+which tasks can be supported by particle aggregation in a thematic map and how can an animated aggregation be realized? The practical implementation discussed in this thesis focuses on a derived question: To what extend do animated transitions help in pointing out advantages and disadvantages of thematic maps?
 
 \subsection{Structure of this Document}
 In the remainder of this chapter, the history of visualisations is discussed first, followed by a basic definition of visualisation with different varieties of this research field. Afterwards, basic principles of visual representations are explained. Next, exploratory data anlysis is explained, followed by visual analytics with a focus on visual channels and their usage.
-The examples and applications shown in this thesis are mainly from the domain of thematic cartography. To brief the reader, the start of chapter \ref{s:methods} gives an introduction to this domain. Furthermore, this chapter includes interaction principles for visualisations with a state-of-the-art application analysis of related work. Chapter \ref{s:results} shows the implementation of the practical application. The core of this thesis is chapter \ref{s:discussion}. It discusses the implementation and the methods used addressing the hypothesis. The thesis is concluded in chapter \ref{s:outlook}.
+The examples and applications shown in this thesis are from the domain of thematic cartography, general visualisation tools, and very specific tools which make use of particles. To brief the reader, the start of chapter \ref{s:methods} gives an introduction to the domain of cartography. Furthermore, this chapter includes interaction principles for visualisations with a state-of-the-art application analysis of related work. Chapter \ref{s:results} shows the implementation of the practical application. The core of this thesis is chapter \ref{s:discussion}. It discusses the implementation and the methods used addressing the hypothesis. The thesis is concluded in chapter \ref{s:outlook}.
 
 \subsection{Visualisation Background}
 \input{chapters/visualizations/overview}

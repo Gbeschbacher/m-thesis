@@ -1,5 +1,5 @@
 The first subsection will explain the system's architecture in detail based on a \ac{UML} diagram. With this diagram, it is possible to show the component-based architecture and how the mentioned tools are combined for the different visualisations and concepts. The second subsection will show the transition manager in detail, which features the transition table mentioned in chapter \ref{s:theoretical-contrib} on page \pageref{s:theoretical-contrib}.
-As already mentioned in chapter \ref{s:collaboration-statement} on page \pageref{s:collaboration-statement}, \citeauthor{Wanko2016} is researching on a related topic of this thesis. The practical part of his his thesis and the one of this thesis are implemented in the same system. Therefore, the actual application has a lot more features and options than described in this section.
+As already mentioned in chapter \ref{s:collaboration-statement} on page \pageref{s:collaboration-statement}, \citeauthor{Wanko2016} is researching on a related topic of this thesis. The practical part of his thesis and the one of this thesis are implemented in the same system. Therefore, the actual application has a lot more features and options than described in this section.
 
 \subsubsection{Application Architecture}
 Figure \ref{fig:uml-practical-approach} on page \pageref{fig:uml-practical-approach} gives an overview of the architecture in the form of a class diagram. However, the diagram shown and discussed in the master-thesis of \citeauthor{Wanko2016} looks quite different, although it is based on the same system. This is due to the relatively big system architecture and the different scopes of both theses \iacite{Wanko2016}. Showing and discussing all available classes, features and options for the application would go beyong the scope. The following list will briefly discuss the most important classes and their purposes:
@@ -17,16 +17,16 @@ Figure \ref{fig:uml-practical-approach} on page \pageref{fig:uml-practical-appro
 
 \begin{description}
 \item[DataStore] \hfill \\
-An object of the DataStore-class is used to load the SuperStore-Sale dataset. In addition to initally loading it, it also parses and analyses the dataset. Each attribute of the dataset got classified to handle the attributes correctly later on. For the sake of convenience, three different classification types were used: numeric, date, nominal and unknown.
+An object of the DataStore-class is used to load the SuperStore-Sale dataset. In addition to initally loading it, it also parses and analyses the dataset. Each attribute of the dataset gets classified in order to handle the attributes correctly later on. For the sake of convenience, four different classification types were used: numeric, date, nominal and unknown.
 
 \item[PIXI.Container] \hfill \\
 \ac{Pixi} features functionalities like container classes. \textit{PIXI.Container} is such a class and can be used to put objects in it, and scale or move those objects according to the base-canvas.
 
 \item[AnimationQueue] \hfill \\
-If an animation is assigned to particles, it is stored in the \textit{AnimationQueue}. This allows to create multiple canvas-based animations and process them sequential.
+If an animation is assigned to particles, it is stored in the \textit{AnimationQueue}. This allows to create multiple canvas-based animations and process them sequentially.
 
 \item[Canvas] \hfill \\
-This class is one of the main classes inside the application. It is needed to not compare it with an HTML-Canvas object. However, this class is responsible for creating the base-canvas of the web-application. Furthermore, it is used to change and update the visual appearance if any interaction happens. A key part of the canvas class is the render function shown in listing \ref{lst:canvas-render} on page \pageref{lst:canvas-render}. It starts off with calling the same function again as soon as possible. The caller-function \textit{requestAnimationFrame} ensures, that the next frame will only be shown if enough resources of the browser are available. Afterwards, all particles and visualisations are animated if something changed. The last line of the listing shows the \ac{Pixi}-renderer. Listing \ref{lst:canvas-autodecet-renderer} on page \pageref{lst:canvas-autodecet-renderer} shows its creation. It features the main canvas-size, background transparency, antialiasing and a lot of other options.
+This class is one of the main classes inside the application. It is needed to not compare it with an HTML-Canvas object. It is responsible for creating the base-canvas of the web-application. Furthermore, it is used to change and update the visual appearance if any interaction happens. A key part of the canvas class is the render function shown in listing \ref{lst:canvas-render} on page \pageref{lst:canvas-render}. It starts off with calling the same function again as soon as possible. The caller-function \textit{requestAnimationFrame} ensures, that the next frame will only be shown if enough resources of the browser are available. Afterwards, all particles and visualisations are animated if something changed. The last line of the listing shows the \ac{Pixi}-renderer. Listing \ref{lst:canvas-autodecet-renderer} on page \pageref{lst:canvas-autodecet-renderer} shows its creation. It features the main canvas-size, background transparency and antialiasing. The renderer provides considerably more options which are not used.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Render function of the canvas class.}, label={lst:canvas-render}]
@@ -68,7 +68,7 @@ This class is the starting point and the parent class for all other types of vis
 Creating an instance of \textit{Overview} will show all data items as unit-based grid.
 
 \item[D3] \hfill \\
-This class is mainly used to wrap all functionality of the \ac{D3} library. It features functions like initialising the base-map as a \ac{SVG} and loading the needed TopoJSON data accordingly. \ac{D3} offers multiple projections for GeoJSON data. Listing \ref{lst:d3-map-init} on page \pageref{lst:d3-map-init} shows a part of the map initialisation with the projection used. The projection is an extension of an Albers equal-area projection discussed in chapter \ref{s:map-projections} on page \pageref{s:albers-equal-area-projection}. It is a United-States-centric composite projection. The lower forty-eight states of america are projected using the default Albers-equal-area projection. However, Alaska and Hawaii use a separate conic equal-area projection. The scale of Alaska is furthermore diminished. It is projected at $0.35\times$ its true relative area. The scale and translation of the map are set to use the available window space and center the map on the screen.
+This class is mainly used to wrap all functionality of the \ac{D3} library. It features functions like initialising the base-map as a \ac{SVG} and loading the needed TopoJSON data accordingly. \ac{D3} offers multiple projections for GeoJSON data. Listing \ref{lst:d3-map-init} on page \pageref{lst:d3-map-init} shows a part of the map initialisation with the projection used. The used projection is an extension of an Albers equal-area projection discussed in chapter \ref{s:map-projections} on page \pageref{s:albers-equal-area-projection}. It is a United-States-centric composite projection. The lower forty-eight states of America are projected using the default Albers-equal-area projection. However, Alaska and Hawaii use a separate conic equal-area projection. The scale of Alaska is furthermore diminished. It is projected at $0.35\times$ its true relative area. The scale and translation of the map are set to use the available window space and center the map on the screen.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Map initialisation with a map projection, scale, and translation.}, label={lst:d3-map-init}]
@@ -78,7 +78,7 @@ This class is mainly used to wrap all functionality of the \ac{D3} library. It f
 \end{lstlisting}
 %TC:endignore
 
-Another key part of this class is featured in listing \ref{lst:d3-topojson} on page \pageref{lst:d3-topojson}. It shows how TopoJSON is used on the client. The filter function passed to the first \textit{TopoJSON.mesh}-function specifies that only internal state borders should be drawn. Thus, coastlines will not be drawn to retain detail around small islands and inlets. The filter function passed to the second \textit{TopoJSON.mesh}-function extends the first one by only drawing each county boundary once. Thus, if two counties share the same border, it is only drawn once.
+Another key part of this class is featured in listing \ref{lst:d3-topojson} on page \pageref{lst:d3-topojson}. It shows how TopoJSON is used on the client. The filter function passed to the first \textit{TopoJSON.mesh}-function specifies that only internal state borders should be used. Thus, coastlines will not be drawn to retain detail around small islands and inlets. The filter function passed to the second \textit{TopoJSON.mesh}-function extends the first one by only showing each county boundary once. Thus, if two counties share the same border, it is only drawn once later on.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={TopoJSON usage on the client with the adaption of merging all geographic information.}, label={lst:d3-topojson}]
@@ -103,7 +103,7 @@ Another key part of this class is featured in listing \ref{lst:d3-topojson} on p
 \end{lstlisting}
 %TC:endignore
 
-Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}-function shown in listing \ref{lst:d3-calculate-centroids} on page \pageref{lst:d3-calculate-centroids}. It calculates a look-up dictionary for the given level of detail for each data item. Thus, providing a huge performance boost when finding out the centroid of a unit later on.
+Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}-function shown in listing \ref{lst:d3-calculate-centroids} on page \pageref{lst:d3-calculate-centroids}. It pre-calculates a look-up dictionary for the given level of detail for each data item. Thus, it provides a huge performance boost when finding out the centroid of a unit later on.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Calculate a look-up dictionary for all data items depending on the level of detail.}, label={lst:d3-calculate-centroids}]
@@ -121,154 +121,74 @@ Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}
 \end{lstlisting}
 %TC:endignore
 
-Furthermore, this class exposes two mandatory functions used to create aggregated thematic maps. Listing \ref{lst:d3-scales} on page \pageref{lst:d3-scales} features the scaling methods used in the application. The \textit{symbolScale}-method is based on a log-scaling with an input domain from 1 to 100 mapped to the output range 0 to 20. If an input value exceeds the given domain, it is scaled and interpolated automatically respectively to the log-scale and a higher output range. The colour-scale is based on a quantile-scale with 9 desired classes. The input domain of this method is 0 to 36 in steps of four. This is because the value representing the amount of orders of a specific enumeration unit is first scaled to the symbol-size and the scaled value serves as an input value for the colour scale. In addition, the values from the input domain are classified into 9 different sections, where each one of them represents colour respectively to the user-defined colour scheme.
-
-Both scaling-methods do not change throughout the application, even when changing the level of detail. As a result, the symbol size and colour used are not linked to the level of detail, but rather map the a particular input value always to the same output value.
+Furthermore, this class exposes two mandatory functions used to create aggregated thematic maps. Listing \ref{lst:d3-scales} on page \pageref{lst:d3-scales} features the scaling methods used in the application. The \textit{symbolScale}-method is based on a power scale with the input domain ranging from $0$ to $1000000$ and the output domain ranging from $0$ to $10$. The default exponent is $0.5$. If an input value exceeds the given domain, it is scaled and interpolated automatically respectively to the scale and a higher output range.
+The colour scale is based on a quantise scale which are similar to linear scales, except they use a discrete rather than continuous range. The continuous input domain is divided into uniform segments based on the number of values in the output range. The output range is not shown in the listing because it depends on the chosen colour scheme. However, each scheme is represented by an array of 9 different colours. Thus, each range value can be expressed as a quantised linear function of the domain value.
+Both scaling methods do not change their input domain throughout the application, even when changing the level of detail. The only change on a scale is the output colour of the \textit{colorScale}-method. As a result, the symbol size and colour used are not linked to the level of detail, but rather map the a particular input value always to the same output value.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Symbol-scale and colour-scale used for aggregated thematic maps.}, label={lst:d3-scales}]
-    this.symbolScale = this._d3.scale.log()
-    .domain([1, 100])
-    .range([0, 20]);
+    this.symbolScale = this._d3.scale.sqrt()
+    .domain([0, 1e6])
+    .range([0, 10]);
 
-    this.colorScale = this._d3.scale.quantile()
-    .domain(this._d3.range(10).map( i => i * 4 ))
-    .range(this._d3.range(9));
+    this.colorScale = this._d3.scale.quantize()
+    .domain([0, 1000]);
 \end{lstlisting}
 %TC:endignore
 
 \item[BaseMap] \hfill \\
-This is the second class inheriting from the \textit{Visualization} class. It features a single object of the \ac{D3} class. Therefore, it is possible that all deriving classes share the same object of \ac{D3} and thus, all its features and settings. Changing the level of detail of the \textit{BaseMap} will affect the map initialised in \textit{\ac{D3}} and hence, all deriving classes are using the same base-map again. This class is mainly used to share the same object of \ac{D3} for all children.
-The decision if the upcoming map should be animated or not handles each subclass on its own. All of them use the same concept of determining the type of transition: each implemented subclass has some kind of \textit{draw}-function which accepts an optional parameter called \textit{animationCb}. If this parameter exists and is not \textit{undefined}, the transition to the upcoming visualisation is animated.
-All subclasses based on aggregation are implemented and animated with \ac{D3}. Therefore, dot map is slightly different than these in the terms of structure and usage. Furthermore, all thematic maps based on aggregation are implemented with the method of using a static file consisting of all information. However, the aggregated values could also be calculated every time.
+This is the second class inheriting from the \textit{Visualization} class. It features a single object of the \ac{D3} class. Therefore, it is possible that all deriving classes share the same object of \ac{D3} and thus, all its features and settings. Changing the level of detail of the \textit{BaseMap} will affect the map initialised in \textit{\ac{D3}} and hence, all deriving classes are using the same base-map again. This main purpose of this class is the Singleton object of \ac{D3} for all children.
+The decision if and how the upcoming map should be animated or not handles each subclass on its own. All subclasses based on aggregation are implemented and animated with \ac{D3}. Therefore, the dot map is slightly different than these in the terms of structure and usage. Furthermore, all thematic maps based on aggregation are implemented with the method of using a static file containing all information. However, the aggregated values could also be calculated dynamically every time.
 
 \item[DotMap] \hfill \\
-The \textit{DotMap} class is the first one to show data on the base-map. It does not use the \ac{DOM} to create the units on the map. It uses the already existing particles from the particle container inherited from the \textit{Visualization} class. Key part of this class is the determination of animating particles or not.
-The herein before mentioned decision if particle should be animated or not is shown in listing \ref{lst:dot-draw-animated} on page \pageref{lst:dot-draw-animated}. It also shows the further executed actions if they should be animated, like projecting the longitude and latitude of the point onto the map and calling the main \textit{draw}-function for each particle.
+The \textit{DotMap} class is the first one to show data on the base-map. It does not use the \ac{DOM} to create the dots (also called particles) on the map. It uses the already existing particles from the particle container inherited from the \textit{Visualization} class. Key part of this class is the initial position of all particles because the dot map is used as an overview of the used data. Listing \ref{lst:dot-draw-animated} on page \pageref{lst:dot-draw-animated} shows the initial placement. Each particle has geographical information denoted as \textit{particle.data.Longitude} and \textit{particle.data.Latitude} which is projected onto the map. The subsequent code saves the projection on the particle object and sets its size and position.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Particles on a dot map getting animated.}, label={lst:dot-draw-animated}]
-    if(this.isFunction(animationCb)){
-        for(let particle of this.particles){
-            point = [particle.data.Longitude, particle.data.Latitude];
-            point = this.baseMap.projection(point);
-            particle.coords = point;
-
-            setTimeout(drawFunc.bind(this), 250, particle, this.size);
-        }
+    for(let particle of this.particles){
+        point = [particle.data.Longitude, particle.data.Latitude];
+        point = this.baseMap.projection(point);
+        particle.coords = point;
+        particle
+        .setPosition(
+            particle.coords[0]-(this.size/2),
+            particle.coords[1]-(this.size/2)
+        )
+        .setSize(
+            this.size,
+            this.size
+        );
     }
+
 \end{lstlisting}
 %TC:endignore
 
 \item[ProportionalSymbolMap] \hfill \\
-Drawing proportional symbols is done by using \ac{D3}. First of all, it does not use the SuperStore-Sale file as a basis, and instead uses the preprocessed TopoJSON file. The \textit{draw}-function of this class gets two parameters: the level of detail which should be drawn and the decision if the symbols should be animated. Listing \ref{lst:psm-draw} on page \pageref{lst:psm-draw} shows how each circle for the proportional symbol map is drawn and eventually animated. Line 8-13 loads the already existing data into the created \ac{SVG}-element. It is important to sort the data first because if this would not happen, bigger circles would cover smaller ones. Drawing the bigger ones first results in zero overpainting. The \textit{.data()}-function returns an array. Iterating through every item in the array is done with the \textit{.enter()}-method. Line 15 and onwards create a proportional symbol called \textit{circle} for each data item in the array. They set its position with \textit{transform} and decide, if its radius should be animated or not.
-
-%TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={The draw-function of the ProportionalSymbolMap-class}, label={lst:psm-draw}]
-    draw(id, animationCb){
-        let map = this.baseMap;
-
-        this[id] = map.svg.append("g")
-        .attr("id", `psm-${id}`)
-        .attr("class", "bubble")
-        .selectAll("circle")
-        .data(
-            map._topojson.feature(map.data.us, map.data.us.objects[id]).features
-            .sort(function(a, b) {
-                return (b.properties.orders || 0) - (a.properties.orders || 0);
-            })
-        )
-        .enter()
-        .append("circle")
-        .attr("transform", function(d) {
-            let coords = map.path.centroid(d);
-            if(isNaN(coords[0]) || isNaN(coords[1])) return;
-            return "translate(" + coords + ")";
-        });
-
-        if(this.isFunction(animationCb)){
-            this[id]
-            .attr("r", 0)
-            .transition()
-            .delay(300)
-            .attr("r", function(d) {
-                return map.symbolScale(d.properties.orders) || 0;
-            })
-            .each("end", animationCb);
-        } else {
-            this[id]
-            .attr("r", function(d) {
-                return map.symbolScale(d.properties.orders) || 0;
-            });
-        }
-    }
-\end{lstlisting}
-%TC:endignore
+The implemented proportional symbol map is a multivariate classed proportional symbol map. The symbol size is scaled with the herein before mentioned symbol scale method. The population of the enumeration unit is the input domain of the method and therefore its symbol size. The second attribute is mapped with colour onto each symbol. The amount of orders of each enumeration unit is used. The amount is classified in a range of $9$ possible classes, where each class is represented by a colour of a sequential colour scale.
+Drawing the multivariate classed proportional symbols is done by using \ac{D3}. First of all, it does not use the SuperStore-Sale file as a basis, and instead uses the preprocessed TopoJSON file. The class exposes functions like \textit{initSymbols}, \textit{colorSymbol}, \textit{scaleSymbols}, and so forth. Each function handles a single concern offering the best possible flexibility to create animated transitions to different kinds of visualisations.
 
 \item[ChoroplethMap] \hfill \\
-The implementation of this type of thematic map is a classified choropleth map. As all the other versions of aggregated thematic maps, the distinction between animated and static drawing is done. Listing \ref{lst:choropleth-part-draw} on page \pageref{lst:choropleth-part-draw} shows a small part of the \textit{draw}-function. If the \textit{animationCb} is truthy, all enumeration units are first coloured with a light grey, followed by a colour transition based on the orders of the unit.
-
-%TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={A small part of the draw-function of the ChoroplethMap-class}, label={lst:choropleth-part-draw}]
-    if(this.isFunction(animationCb)){
-        this[id]
-        .attr("fill", "#D3D3D3")
-        .transition()
-        .delay(300)
-        .duration(1000)
-        .attr("fill", d => {
-            let scaled = map.colorScale(
-                map.symbolScale(Number(d.properties.orders) || 0) || 0
-            );
-            return this.getColor[scaled];
-        })
-        .each("end", animationCb);
-    } else {
-        this[id]
-        .attr("fill", d => {
-            let scaled = map.colorScale(
-                map.symbolScale(Number(d.properties.orders) || 0) || 0
-            );
-            return this.getColor[scaled];
-        });
-    }
-\end{lstlisting}
-%TC:endignore
-
+The implementation of this type of thematic map is a univariate classified choropleth map, where each coloured area represents the amount of orders.
 
 \item[Cartogram] \hfill \\
-The web-application implements a specific type of cartogram: a pseudo Demers cartogram. A true Demers cartogram would need links between adjacent features. However, the type of cartogram implemented tries to preserve locality instead of connectedness. Therefore, each square is located as close as possible to its origin without overlapping. In order to deliver this kind of information to the user, a collision detection with gravity is used to animate the position of each square. Listing \ref{lst:cartogram-part-draw} on page \pageref{lst:cartogram-part-draw} shows a small part of the \textit{draw}-function. It covers the part of initially drawing each square and the part of starting the collision detection and the gravity.
+The web-application implements a specific type of cartogram: a pseudo Demers cartogram. A true Demers cartogram would need links between adjacent features. However, the type of cartogram implemented tries to preserve locality instead of connectedness. Furthermore, it uses circles instead of squares. This allows to create an animated transition from proportional symbols to a cartogram by applying a force with some kind of gravity without the need to change the symbol.
+Preserving locality is done by placing each circle as close as possible to its origin without overlapping. In order to deliver this kind of information to the user, a collision detection with gravity is used to animate the position of each circle. Listing \ref{lst:cartogram-part-tick} on page \pageref{lst:cartogram-part-tick} shows a small part of the force directed layout. The \textit{tick}-method can be compared to the herein before mentioned \textit{render}-method of the canvas class. It executes every frame if possible and applies collision detection and gravity to every symbol. \textit{gravity}-method is a key part is this concept. The attributes \textit{x0} and \textit{y0} represent the origin of each symbol whereas \textit{x} and \textit{y} are the current coordinates changed by the collision function. Thus, the gravity function ensures, that the symbols are as close to their location as possible.
 
 %TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={A small part of the draw-function of the pseudo Demers Cartogramm-class}, label={lst:cartogram-part-draw}]
-    this.node = map.svg.append("g")
-    .attr("id", `cartogram-${id}`)
-    .selectAll("rect")
-    .data(this.nodes)
-    .enter()
-    .append("rect")
-    .attr("class", "rect");
+\begin{lstlisting}[language=JavaScript, caption={A small part of the draw-function of the pseudo Demers Cartogramm-class}, label={lst:cartogram-part-tick}]
+    tick(gravity) {
+        this[this.id]
+        .each(this.gravity(gravity))
+        .each(this.collide(0.25))
+        .attr("cx", d => { return d.x; })
+        .attr("cy", d => { return d.y; });
+    }
 
-    if(this.isFunction(animationCb)){
-        this.node
-        .attr('width', 0)
-        .attr('height', 0)
-        .transition()
-        .delay(300)
-        .attr("x", d => { return d.x - d.r; })
-        .attr("y", d => { return d.y - d.r; })
-        .attr("width", d => { return d.r * 2; })
-        .attr("height", d => { return d.r * 2; })
-        .each("end", () => {
-            animationCb();
-
-            force
-            .nodes(this.nodes)
-            .on("tick", this.tick.bind(this, 0.00599))
-            .start();
-
-        });
-        this[id] = this.node;
+    gravity(k) {
+        return d => {
+            d.x += (d.x0 - d.x) * k;
+            d.y += (d.y0 - d.y) * k;
+        };
     }
 \end{lstlisting}
 %TC:endignore
@@ -277,38 +197,57 @@ The web-application implements a specific type of cartogram: a pseudo Demers car
 This container contains all particles and ensures, that they are animated in the desired order. Furthermore, it controls the speed of each animated particle.
 
 \item[Particle] \hfill \\
-A particle is inherits the functionality of \textit{PIXI.Graphics} and contains information about its position, alpha value, and the data it represents. It exposes methods to draw a particle onto the map and to animate it.
+A particle inherits the functionality of \textit{PIXI.Sprite} and contains information about its position, alpha value, and the data it represents. It exposes methods to draw a particle onto the map and to animate it.
 
 \item[TransitionManager] \hfill \\
-If the type of visualisation changes and transition type is selected, an instance of this class gets called. It handles all animations concerning the transition. The exposed \textit{animate}-function needs two parameters as strings: the type of the current visualisation and the type of the upcoming one. Listing \ref{lst:tm-dot-cartogram} on page \pageref{lst:tm-dot-cartogram} features the transition from a dot-map to a cartogram. First, all particles are animated to their centroid according to the chosen level of detail. Second, the upcoming visualisation is drawn with some parameters, e.g. a boolean value indicating if the current visualisation is already a cartogram or not, or the already mentioned \textit{animationCb}-function in form of an anonymous function. It gets executed after the upcoming visualisation is drawn.
+If the type of visualisation changes, an instance of this class gets called. It handles all animations concerning the transition. The exposed \textit{animate}-function needs two parameters as strings: the type of the current visualisation and the type of the upcoming one. With this information, it is possible to handle each transition separately. Section \ref{s:animated-transitions-implemented} on page \pageref{s:animated-transitions-implemented} discusses the implemented and animated transitoins in detail.
+\end{description}
 
-%TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={Animate the transition from a dot-map to a cartogram.}, label={lst:tm-dot-cartogram}]
-    case 'dot_cartogram':
-        animateParticleToCentroid(this.currentViz, this.canvas.levelOfDetail);
-        this.canvas.render();
+Another aspect of all thematic maps based on aggregation is the stored reference of the data shown (the allocation of \textit{this[this.id] = \ldots}). This reference is used to determine if the data on the map needs to be updated and redrawn or not.
 
-        upcomingViz.obj = this.canvas.drawCartogram(
-            null,
-            this.currentViz.constructor.name === "Cartogram",
-            () => {
-                this.currentViz.hide(false, true);
-                this.fadeOutParticles();
-            }
-        );
-        upcomingViz.type = 'cartogram';
-        resolve(upcomingViz);
-        break;
-\end{lstlisting}
-%TC:endignore
+\subsubsection{Interaction}
+The implemented application only features basic interaction methods. Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows a navigation bar and the configurable settings. Changing the visual appearance can be achieved by interacting with the bar. If changing any kind of configuration is desired, e.g. the speed of moving particles or the level of detail shown, this can be done by using the graphical user interface in the top right.
+
+\subsubsection{Animated Transitions}
+\label{s:animated-transitions-implemented}
+Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented} shows the implemented animated transitions between visual appearances. Every transition is described with abbreviations in the table which are explained in detail in the description list below. A cell containing several abbreviations denotes the transition flow step by step.
+
+\begin{table}[!htp]
+    \begin{tabular}{M{26mm}|| M{26mm} | M{26mm} | M{26mm} | M{26mm} N}
+
+    ~ & Dot Map & Proportional Symbol Map & Choropleth Map & Cartogram &\\[4ex] \hline \hline
+
+    Dot Map & ~ & Scale, Origin-colour & Draw defaults, Area-colour, Symbol-colour, Origin-colour & Symbol-translation, Scale, Origin-colour &\\[4ex] \hline
+
+    Proportional Symbol Map & Draw defaults, CB-colour, Scale & ~ & Draw defaults, Area-colour, Symbol-colour, Scale & Symbol-translation &\\[4ex] \hline
+
+    Choropleth Map & Draw defaults, CB-colour, Area-colour & Scale, Area-colour & ~ & Symbol-translation, Scale, Area-colour &\\[4ex] \hline
+
+    Cartogram & Draw defaults, CB-colour, Scale, Force & Force & Draw defaults, Area-colour, Symbol-colour, Scale, Force & ~ &\\[4ex]
+
+    \end{tabular}
+    \caption{Transition table showing the implemented transition from a given visualisation (column) to any upcoming visualisation (rows)}
+    \label{tab:transition-table-implemented}
+\end{table}
+
+\begin{description}
+
+\item[Scale] \hfill \\
+\item[Origin-colour] \hfill \\
+\item[Draw defaults] \hfill \\
+\item[Area-colour] \hfill \\
+\item[Symbol-colour] \hfill \\
+\item[Force] \hfill \\
+\item[Symbol-translation] \hfill \\
+\item[CB-colour] \hfill \\
 
 \end{description}
 
-Another aspect of all thematic maps based on aggregation is the stored reference of the data shown. The allocation of \textit{this[id] = \ldots} in the mentioned listings depicts this fact. This reference is used to determine if the data on the map needs to be updated and redrawn or not.
 
-\subsubsection{Interaction}
-The implemented application only features basic interaction methods. Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows a navigation bar and the configurable settings. Changing the visual appearance and the type of transition can be achieved by interacting with the bar. If changing any kind of configuration is desired, e.g. the speed of moving particles or the level of detail shown, this can be done by using the graphical user interface to the right.
-At the moment, each map has only one transition implemented to another type of map implemented. The starting point for each transition is the dot map. It has four different transitions overall, where each transition belongs to exactly one type of visualisations. Animating the transition from a proportional symbol map to a choropleth map uses the dot map as intermediate stage. Hence, the symbols are removed and the transition to the dot map is done first. If the animation is finished, another transition is triggered, which leads to the desired visualisation. The class handling this behaviour is already described in the section before.
+
+
+
+
 
 \subsubsection{Showcase}
 Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases the web application. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the proportional symbol map, \ref{f:showcase-choropleth} the choropleth map and \ref{f:showcase-cartogram} the cartogram.
@@ -354,3 +293,7 @@ Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases t
 %
 % MAYBE DESCRIBE "CODE-FLOW"; changing visual representation triggers a window on-change function; this either checks if transition
 %
+
+
+
+% These are used in the transition manager to create the different animated transitions to each other type of visualisation.

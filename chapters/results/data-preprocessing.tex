@@ -1,4 +1,4 @@
-As the section before already showed, two different files are now accessible. However, in order to actually use these files, some preprocessing is needed. This chapter is divided into three parts. The first one will discuss the preparation of the Superstore-Sale dataset, the second one will explain how to get boundaries out of the downloaded zip-file, and the third one will demonstrate how these two files can be merged.
+As the section before already showed, three different files are now accessible. However, in order to actually use these files, some preprocessing is needed. This chapter is divided into three parts. The first one will discuss the preparation of the Superstore-Sale dataset, the second one will explain how to get boundaries and population out of the downloaded zip-files, and the third one will demonstrate how these files can be merged.
 
 \subsubsection{Preprocessing Superstore-Sale}
 First of all, some numbers in this dataset are shown in a different format. Converting all numbers to the same format is essential.
@@ -43,8 +43,8 @@ if (item.hasOwnProperty("Postal Code")) {
 \end{lstlisting}
 %TC:endignore
 
-\subsubsection{Preprocessing Cartographic Boundaries}
-Section \ref{s:data-acquisition} on page \pageref{s:data-acquisition} already mentions how to automatically download and save the zip file containing cartographic boundaries of the United States. However, the zip-file by itself is not useful. The contents of the zip-file need to be converted first in order to actually being able to use the data. Listing \ref{lst:data-acqu-unzip} on page \pageref{lst:data-acqu-unzip} displays the make task for unzipping files. This task unzips \textit{gz\_2010\_us\_050\_00\_20m.zip} resulting in \textit{gz\_2010\_us\_050\_00\_20m.shp}. A shapefile is a common standard\footnote{See \href{https://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm}{https://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm} for more information} for representing geospatial vector data.
+\subsubsection{Preprocessing Cartographic Boundaries and Population}
+Section \ref{s:data-acquisition} on page \pageref{s:data-acquisition} already mentions how to automatically download and save the zip files containing cartographic boundaries of the United States and the population of each county. However, the zip-files by themself are not useful. The contents of the zip-files need to be converted first in order to actually being able to use the data. Listing \ref{lst:data-acqu-unzip} on page \pageref{lst:data-acqu-unzip} displays the make task for unzipping files. This task unzips \textit{gz\_2010\_us\_050\_00\_20m.zip} resulting in \textit{gz\_2010\_us\_050\_00\_20m.shp}. A shapefile is a common standard\footnote{See \href{https://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm}{https://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm} for more information} for representing geospatial vector data.
 
 %TC:ignore
 \begin{lstlisting}[style={makefile}, caption={Make task for unzipping files}, label={lst:data-acqu-unzip}]
@@ -54,7 +54,7 @@ Section \ref{s:data-acquisition} on page \pageref{s:data-acquisition} already me
 \end{lstlisting}
 %TC:endignore
 
-However, shapefiles cannot be used directly in today's browsers. Converting it to GeoJSON\footnote{See \href{http://geojson.org/}{http://geojson.org/} for more information.} first yields the result of having a usable file in the browser. GeoJSON is a format for encoding a variety of geographic data structures in a JSON structure. There are a variety of tools available converting shapefiles to GeoJSON. In order still automatize it, a command-line tool is needed, and therefore TopoJSON\footnote{See \href{https://github.com/mbostock/topojson}{https://github.com/mbostock/topojson} for more information.} was used. TopoJSON is a simple extension to GeoJson that encodes topology. Listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1} shows the usage of this command line tool. The option \textit{-o} simply denotes the input file, \textit{--} tells TopoJSON that all options are passed in and \textit{counties} is the JSON-key all information is put in.
+However, shapefiles cannot be used directly in today's browsers. Converting it to GeoJSON\footnote{See \href{http://geojson.org/}{http://geojson.org/} for more information.} first yields the result of having a usable file in the browser. GeoJSON is a format for encoding a variety of geographic data structures in a JSON structure. There are a variety of tools available converting shapefiles to GeoJSON. In order to automatize it, a command-line tool is needed, and therefore TopoJSON\footnote{See \href{https://github.com/mbostock/topojson}{https://github.com/mbostock/topojson} for more information.} was used. TopoJSON is a simple extension to GeoJson that encodes topology. Listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1} shows the usage of this command line tool. The option \textit{-o} simply denotes the input file, option \textit{--} tells TopoJSON that all options are passed in and \textit{counties} is the JSON-key where all information is put in.
 
 %TC:ignore
 \begin{lstlisting}[style={makefile}, caption={Make task for converting shapefiles to geojson}, label={lst:data-acqu-topo1}]
@@ -89,9 +89,9 @@ With this task, a file containing all cartographic boundaries for all counties e
 \end{lstlisting}
 %TC:endignore
 
-\subsubsection{Merging Superstore-Sale with Cartographic Boundaries}
-This section mainly discusses pre-processing steps of one of the two methods mentioned to implement an aggregated thematic map (see chapter \ref{s:web-application} on page \pageref{s:web-application} for more information). The objective of merging Superstore-Sale with the already preprocessed boundary-files is to have one file including all aggregated values of orders per county or state. Such a file can be used to show all orders for each county or state without the need of dynamically calculating it.
-In order to aggregate the orders on a county level of detail, listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1} needs some adaptations with a new starting file. Using the already preprocessed Superstore-Sale dataset, it is possible to create a new file with the aggregated information. Listing \ref{lst:data-prep-amount} on page \pageref{lst:data-prep-amount} iterates the given dataset, creates a county-based dictionary counting all objects having the same county and writes the information back to a file.
+\subsubsection{Merging Superstore-Sale with Cartographic Boundaries and Population}
+This section mainly discusses pre-processing steps of one of the two methods mentioned to implement an aggregated thematic map (see chapter \ref{s:web-application} on page \pageref{s:web-application} for more information). The objective of merging Superstore-Sale with the already preprocessed boundary and population files is to have one file including all aggregated values of orders and population per county and state. Such a file can be used to show all orders including the population for each county or state without the need of dynamically calculating it.
+In order to aggregate the orders and population on a county level of detail, listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1} needs some adaptations with a new starting file. Using the already preprocessed Superstore-Sale dataset, it is possible to create a new file with the aggregated information. Listing \ref{lst:data-prep-amount} on page \pageref{lst:data-prep-amount} iterates the given dataset, creates a county-based dictionary counting all objects having the same county and writes the information back to a file.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Creating the file containing aggregation information}, label={lst:data-prep-amount}]
@@ -133,7 +133,7 @@ csv.fromPath("./path-to-preprocessed-superstore-sale.csv", {
 \end{lstlisting}
 %TC:endignore
 
-This listing yields a file which can be used in combination with the already created TopoJSON file. Listing \ref{lst:data-acqu-topo4} on page \pageref{lst:data-acqu-topo4} is an updated version of listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1}. It extends the already mentioned task by combining the newly created aggregation file. The option \textit{--id-property} simply denotes the identification key for each item for both files. All \textit{--external-properties} needs a file as input parameter to look up \textit{--properties} which cannot be found in the original input file from the task. Thus, all \textit{--properties} listed in the task are available as a key-value pair later on.
+This listing yields a file which can then be used in combination with the already created TopoJSON file. Listing \ref{lst:data-acqu-topo4} on page \pageref{lst:data-acqu-topo4} is an updated version of listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1}. It extends the already mentioned task by combining the newly created aggregation file with the already existing boundary and population files . The option \textit{--id-property} simply denotes the identification key for each item for all files. All \textit{--external-properties} need a file as input parameter to look up \textit{--properties} which cannot be found in the original input file from the task. Thus, all \textit{--properties} listed in the task are available as a key-value pair later on.
 
 %TC:ignore
 \begin{lstlisting}[style={makefile}, caption={Make task for merging a file with topojson}, label={lst:data-acqu-topo4}]
@@ -142,11 +142,13 @@ This listing yields a file which can be used in combination with the already cre
         -o $@ \
         --id-property 'GEO_ID' \
         --external-properties ./data/superstore-aggregated.csv \
+        --external-properties ./build/population/acs2014_5yr_B01003_05000US56015.csv \
         --properties 'geoId=GEO_ID' \
         --properties 'stateId=STATE' \
         --properties 'countyId=COUNTY' \
         --properties 'county=NAME' \
         --properties 'orders=AMOUNT' \
+        --properties='population=+d.properties["B01003001"]' \
         -- counties=$<
 \end{lstlisting}
 %TC:endignore
