@@ -8,6 +8,22 @@ The primary setup of pre-calculating every needed information has one major adva
 A significant drawback using this setup is that showing additional information to an aggregated symbol is not possible. A thematic map based on aggregation fully relys on the preprocessed dataset. Therefore, showing additional information on the dot-map would make use of the Superstore-Sale dataset with all information accessible, whereas showing additional information for symbols or units in aggregated thematic maps depends on the preprocessed boundary file. From an abstract point of view, the practical implementation uses two different source files for showing one phenomenon, yielding to inconsistency when allowing interaction with the visualisation. Changing the visual appearance also changes their base-data and therefore consistency in interaction concepts is not possible and therefore left out.
 
 \subsubsection{Animated Transition}
+The implemented transition manager is a key part of the practical application. It specifies some kind of structure to all visualisation classes. Each step of a transition needs to be implemented in the actual class and the manager only calls the exposed functions in the correct order to create the animated transition. This concept ensures separation of concerns of each exposed function and therefore guaranteeing modularity in creating animated transitions.
+
+The transition table \ref{tab:transition-table} on page \pageref{tab:transition-table} mentions shape transitions which are not yet implemented. This is due to the GeoJSON file acquired from the census bureau. Every enumeration unit is specified as a multipolygon. The GeoJSON specification defines multipolygons as a collection of polygons and polygons as an array of coordinates. However, a polygon can contain multiple rings. If this is the case, the first ring must be the exterior one and any others must be interior rings or holes.
+Animating the morphing of an enumeration unit to a symbol would require the starting point to be a polygon in order to create a smooth transition. However, merging the multipolygon of an enumeration unit to a single polygon containing only a single outer ring is not possible. A point in the multipolygon and therefore in the map is unique. This makes it impossible to find the outer ring of multiple polygons.
+Another possibility in animated morphing would be to morph each polygon to a particular segment of the symbol. With the current data, the transition will not look smooth. Some polygons in enumeration units are hidden behind the default symbol, therefore an animated morphing of those would look like a random symbol segment appearing without noticing the origin of the polygon.
+
+
+% implementierten transitions sind okay und helfen zumindest ein bisschen um die grundprinzipien von den implementierten thematic maps auszuweisen;
+
+% es wurde versucht, dass z.B. auf der choropleth map die eingefaerbten staaten sich zu den symbolen von den anderen maps morphen - sprich, dass bei der transition sich ein staat zu einem kreis morpht und dieses morphing animiert wird; jedoch ist dies auf grund der boundary-daten nicht moeglich, denn jede enumeration-unit besteht aus einem multipolygon. multipolygone sind so definiert, dass sie einfach mehrere polygone beinhalten mit dem hinweis, dass ein punkt auf der karte immer genau zu einem polygon gehoert; dies hat den nachteil, dass man aus all diesen multipolygonen kein einziges polygon mergen kann, welches man dann zu einem kreis morphen koennte;
+
+% eine weitere ueberlegung bzgl enumeration-unit-morphing waere, dass man jedes polygon des multipolygons zu einem kreissegment morpht; dies fuehrt jedoch dazu, dass die animation nicht "rund" wirkt, weil die position des polygons theoretisch auch im kreis liegen kann und somit dieses segment fuer den karten-leser einfach "auftaucht"
+
+
+% done
+% mithilfe des transition managers is es moeglich, eine vielzahl weiterer animationen einzubauen; weiters gibt es eine gewisse struktur den einzelnen klassen vor, weil jeder step der transition von den klassen implementiert werden muss und der transition manager sich nur darum kuemmert, die einzelnen funktionen dann in der richtigen reihenfolge auszufuehren;
 
 \subsubsection{Analysis-Framework}
 
