@@ -4,12 +4,10 @@ The web application consists of two main parts: the first one is the data acquis
 Automatic data acquisition and preparation with GNU-Make is very powerful and flexible. The primal strength of it is that writing a \textit{Makefile} creates a machine-readable documentation for the whole workflow. Recording each step in the process enables reproducibility later on.
 Thinking of GNU-Make as a dependency graph is key. Unlike a linear and sequential script, a dependency graph is more modular. For example, a \textit{Makefile} is augmentable with deriving multiple data files from the same zip archive without repeating the download of the archive. Thus, using GNU-Make fulfills already two requirements: it scales very well if using multiple data files from different data sources is desired and modularity is provided with the ability of defining tasks for different concerns. However, one major weakness of GNU-Make is its syntax and possible complexity. Putting the facts into comparison, the advantages outweigh the disadvantages.
 
-% talk about data preparation and its limitations because of the way the aggregation is prepared and later on implemented (missing information compared to dots)
-% advantage: processing time of aggregation is only done once (when loading the file)
-% disadvantage: missing information about single particles because of the use of aggregation; using two different files for showing one phenomenon; the concept of using two data-files is not good: switching visual appearances also switch their base-data and therefore is hard to provide same interaction concepts to different visualisations.
+The primary setup of pre-calculating every needed information has one major advantage as well as one disadvantage. The client-side web application needs to deliver the file to the client with all information only once. Afterwards, everything can be used without dynamically calculating values. On the one side, the initial loading time of the application is significantly higher compared to only delivering the boundary informations. On the other hand, the acquisition and calculation of data later yields to performance drops whenever the data is needed.
+A significant drawback using this setup is that showing additional information to an aggregated symbol is not possible. A thematic map based on aggregation fully relys on the preprocessed dataset. Therefore, showing additional information on the dot-map would make use of the Superstore-Sale dataset with all information accessible, whereas showing additional information for symbols or units in aggregated thematic maps depends on the preprocessed boundary file. From an abstract point of view, the practical implementation uses two different source files for showing one phenomenon, yielding to inconsistency when allowing interaction with the visualisation. Changing the visual appearance also changes their base-data and therefore consistency in interaction concepts is not possible and therefore left out.
 
 \subsubsection{Animated Transition}
-%
 
 \subsubsection{Analysis-Framework}
 
@@ -17,4 +15,3 @@ Thinking of GNU-Make as a dependency graph is key. Unlike a linear and sequentia
 % d3 acceptable but scaling needs some considerations
 % es6 + babel = bad choice because performance is not well
 % pixi for using particles is fine;
-%

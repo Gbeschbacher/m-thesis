@@ -231,26 +231,34 @@ Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-tab
 \end{table}
 
 \begin{description}
+\item[Area-colour] \hfill \\
+Colouring enumeration units where the colour either is determined by the current selected colour scheme or the default colour.
+
+\item[CB-colour] \hfill \\
+Centroid-based colouring is only used in conjunction the \textit{Draw default}-transition. Particles moving to its centroid colour their appropriate symbol when reaching the centroid.
+
+\item[Draw defaults] \hfill \\
+Default symbols (circles) are drawn for each enumeration unit at its centroid. Each circle has a default radius. This transition state is mainly used to set up following ones.
+
+\item[Force] \hfill \\
+This transition state is only used to create cartograms. Force is dependent on symbols in the screen. It applies collision detection and gravity on those symbols in order to create the Pseudo-Demers cartogram.
+
+\item[Origin-colour] \hfill \\
+Origin-colour is the exact opposite of "CB-Colour. All particles are moving from their centroid to their origin location. When leaving their appropriate symbol, the colour of the symbol adapts accordingly.
 
 \item[Scale] \hfill \\
-\item[Origin-colour] \hfill \\
-\item[Draw defaults] \hfill \\
-\item[Area-colour] \hfill \\
+Scaling is also dependent on existing symbols. When scaling is triggered, all symbols are either scaled to their population or back to a default value.
+
 \item[Symbol-colour] \hfill \\
-\item[Force] \hfill \\
+All symbols are coloured at once appropriately to their amount of orders.
+
 \item[Symbol-translation] \hfill \\
-\item[CB-colour] \hfill \\
+If the current visualisation is a cartogram and the user wishes to change the visual appearance, all symbols need to move back to their origin again.
 
 \end{description}
 
-
-
-
-
-
-
 \subsubsection{Showcase}
-Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases the web application. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the proportional symbol map, \ref{f:showcase-choropleth} the choropleth map and \ref{f:showcase-cartogram} the cartogram.
+Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases the web application. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the multivariate classed proportional symbol map, \ref{f:showcase-choropleth} the classed choropleth map and \ref{f:showcase-cartogram} the classed Pseude-Demers cartogram.
 
 \begin{figure*}
     \centering
@@ -266,7 +274,7 @@ Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases t
         \centering
         \includegraphics[width=\textwidth]{images/results/map_psm.png}
         \caption[Proportional symbol map]%
-        {{\small Proportional symbol map}}
+        {{\small Multivariate classed proportional symbol map}}
         \label{f:showcase-psm}
     \end{subfigure}
     \vskip\baselineskip
@@ -274,7 +282,7 @@ Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases t
         \centering
         \includegraphics[width=\textwidth]{images/results/map_choropleth.png}
         \caption[Choropleth map]%
-        {{\small Choropleth map}}
+        {{\small Classed choropleth map}}
         \label{f:showcase-choropleth}
     \end{subfigure}
     \quad
@@ -282,18 +290,10 @@ Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} showcases t
         \centering
         \includegraphics[width=\textwidth]{images/results/map_cartogram.png}
         \caption[Pseudo-Demers cartogram]%
-        {{\small Pseudo-Demers cartogram}}
+        {{\small Classed Pseudo-Demers cartogram}}
         \label{f:showcase-cartogram}
     \end{subfigure}
     \caption[The implemented web-application showing four different types of thematic maps and interaction possibilities.]
     {\small The implemented web-application showing four different types of thematic maps and interaction possibilities.}
     \label{f:showcase-overall}
 \end{figure*}
-
-%
-% MAYBE DESCRIBE "CODE-FLOW"; changing visual representation triggers a window on-change function; this either checks if transition
-%
-
-
-
-% These are used in the transition manager to create the different animated transitions to each other type of visualisation.
