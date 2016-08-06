@@ -14,20 +14,33 @@ The transition table \ref{tab:transition-table} on page \pageref{tab:transition-
 Animating the morphing of an enumeration unit to a symbol would require the starting point to be a polygon in order to create a smooth transition. However, merging the multipolygon of an enumeration unit to a single polygon containing only a single outer ring is not possible. A point in the multipolygon and therefore in the map is unique. This makes it impossible to find the outer ring of multiple polygons.
 Another possibility in animated morphing would be to morph each polygon to a particular segment of the symbol. With the current data, the transition will not look smooth. Some polygons in enumeration units are hidden behind the default symbol, therefore an animated morphing of those would look like a random symbol segment appearing without noticing the origin of the polygon.
 
-
-% implementierten transitions sind okay und helfen zumindest ein bisschen um die grundprinzipien von den implementierten thematic maps auszuweisen;
-
-% es wurde versucht, dass z.B. auf der choropleth map die eingefaerbten staaten sich zu den symbolen von den anderen maps morphen - sprich, dass bei der transition sich ein staat zu einem kreis morpht und dieses morphing animiert wird; jedoch ist dies auf grund der boundary-daten nicht moeglich, denn jede enumeration-unit besteht aus einem multipolygon. multipolygone sind so definiert, dass sie einfach mehrere polygone beinhalten mit dem hinweis, dass ein punkt auf der karte immer genau zu einem polygon gehoert; dies hat den nachteil, dass man aus all diesen multipolygonen kein einziges polygon mergen kann, welches man dann zu einem kreis morphen koennte;
-
-% eine weitere ueberlegung bzgl enumeration-unit-morphing waere, dass man jedes polygon des multipolygons zu einem kreissegment morpht; dies fuehrt jedoch dazu, dass die animation nicht "rund" wirkt, weil die position des polygons theoretisch auch im kreis liegen kann und somit dieses segment fuer den karten-leser einfach "auftaucht"
-
-
-% done
-% mithilfe des transition managers is es moeglich, eine vielzahl weiterer animationen einzubauen; weiters gibt es eine gewisse struktur den einzelnen klassen vor, weil jeder step der transition von den klassen implementiert werden muss und der transition manager sich nur darum kuemmert, die einzelnen funktionen dann in der richtigen reihenfolge auszufuehren;
-
 \subsubsection{Analysis-Framework}
 
+% what
+% tables and geometry (spatial data)
+% static data
+The implemented web application is based on two datasets: a tabular dataset (SuperStore-Sale) and a spatial one (boundaries). These datasets are statically preprocessed and used. This information already answers the question of what the application visualises.
+
+% why
+% main task is to discover information and derive next steps
+% targets and locations are unkown and therefore the visualisation is used to explore the data
+% comparing the same information between different types of visualisations is possible with in-place transitions
+Furthermore, the main objective of the application is to consume a lot of information and derive knowledge to set up possible next steps. According to the used dataset, the target of a task could be to identify an area of the United States with a lot of orders. Therefore, the target is known and the location is unkown, leading to location according to figure \ref{fig:why} on page \pageref{fig:why}. Querying a visualisations is only available in a limited way. The implemented in-place transitions between different thematic maps allow comparing the same information with an animated transition in different visualisations.
+
+% how
+% all encoded on a map with size and color as a main mapping method
+% however, changing the visual appearance also uses motion
+% manipulating the visual appearance is possible with changing the level of detail, colorscheme and particle speed;
+% reducing the displayed information in any kind is not possible at all; due to the pre-defined characteristics of each visualisation type
+Overall, the application uses static encodings like colour, size and shapes for the different types of maps and motion when changing the visual appearance. This already leads to the possibilities in manipulation. Changing the level of detail, colour scheme and particle speed allow for exploring different settings. However, reducing or changing the displayed information is not possible at all. The implemented types of maps have very specific characteristics, making a consistent aggregation or filtering of information impracticable.
+
 \subsubsection{Used Technology}
-% d3 acceptable but scaling needs some considerations
-% es6 + babel = bad choice because performance is not well
-% pixi for using particles is fine;
+Using ECMAScript6 was not the best choice. Decker presents ECMAScript6 polyfill performance tests. He implements a specific feature with multiple JavaScript versions and compairs their runtime. Furthermore, he uses multiple different transpilers yielding considerable results. The following discussion only includes features which are used in the practical application. It also focuses on the results for Chrome 51, because this is the browser version used for testing the application \iacite{Decker2016}.
+
+His report\footnote{See \href{https://kpdecker.github.io/six-speed/}{https://kpdecker.github.io/six-speed/} for more information.} shows that using classes in combination with babel as a transpiler is $1,8\times$ slower in chrome 51 compared to the default way of creating an object in JavaScript. In addition, using default parameters and calling a parent class with the super keyword is significantly slower. However, the usage of promises is a little bit faster in Chrome 51 \iacite{Decker2016}.
+
+Nonetheless, comparing the used version of JavaScript with its performance with its readability, it is still reasonable because of the better maintainability of the code. Despite its advantage, it is still needed to consider using a different transpiler or JavaScript version if the application should use larger datasets or lacks performance.
+
+\ac{D3} is a proper library providing a huge set of useful functions. Its flexibility and functional style allows code reuse. The usage of this library in the practical application shows no drawbacks at all. Animating all symbols at once or with different timings and applying forces such as gravity is neither a performance problem, nor an implementation problem. However, using \ac{DOM} elements always depends on a proper use of JavaScript. For example, considering a memory leak because of keeping references to deleted \ac{DOM} elements would result in an unresponsive browser.
+
+\ac{Pixi} does not show any disadvantage in the currently implemented application. Displaying particles as sprites is a very scaleable way and animating them with a generalized render function combined with an animation queue provides modularity.
