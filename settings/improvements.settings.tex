@@ -4,3 +4,13 @@
 %\usepackage{fixltx2e} % bugfix package; not required after 2015
 \usepackage{soul} % for better hyphenation of words
 \usepackage[inline]{enumitem}
+\usepackage{placeins}
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
