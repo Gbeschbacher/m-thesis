@@ -1,78 +1,12 @@
 % ========= MACROS =========
 \usepackage{keyval}
-% >>>>>>>>> INFO IN HEADER =========
-\newcommand{\iheader}[1]{
-	\phantomsection
-    \markright{#1}
-    \addcontentsline{toc}{section}{#1}
-}
-\newcommand{\isection}[1]{
-    \iheader{#1}
-    \section*{#1}
-}
+
 % >>>>>>>>> CITES =========
 \newcommand{\icite}[2][]{\citereset\citet[#1]{#2}}
 \newcommand{\iacite}[2][]{\citereset\autocite[#1]{#2}}
-\newcommand{\icitetitle}[2][]{\citereset\citetitle[#1]{#2}}
-
-\makeatletter
-% >>>>>>>>> IMAGE =========
-\define@key{image}{pos}{\def\i@pos{#1}}
-\define@key{image}{width}{\def\i@width{#1}}
-\define@key{image}{caption}{\def\i@caption{#1}}
-\define@key{image}{label}{\def\i@label{#1}}
-\setkeys{image}{
-	pos=H,
-    width=\textwidth}
-\newcommand{\image}[2][]{%
-	\begingroup%
-    \setkeys{image}{#1}%
-    \begingroup\edef\x{\endgroup
-        	\noexpand\begin{figure}[\i@pos]}\x
-        \centering
-        \includegraphics[width=\i@width]{#2}
-        \caption{\i@caption}
-        \label{\i@label}
-        \end{figure}
-	\endgroup%
-}
-% >>>>>>>>> TABENV =========
-\define@key{tabenv}{pos}{\def\t@pos{#1}}
-\define@key{tabenv}{caption}{\def\t@caption{#1}}
-\define@key{tabenv}{label}{\def\t@label{#1}}
-\setkeys{tabenv}{pos=H}
-\newcommand{\tabenv}[3][]{%
-	\begingroup%
-    \setkeys{tabenv}{#1}%
-    \begingroup\edef\x{\endgroup
-        	\noexpand\begin{table}[\t@pos]}\x
-        \centering
-        \rowcolors{2}{lightgray!30}{white}
-        \begin{tabular}{#2}
-        	#3
-        \end{tabular}
-        \caption{\t@caption}
-        \label{\t@label}
-    \end{table}
-	\endgroup%
-}
-\makeatother
 
 % >>>>>>>>> ENUMERATED DESCRIPTION LIST WITH DITEM =========
 \newcommand\ditem[1]{\item{\bfseries #1}}
-
-% >>>>>>>>> ADD HYPERLINK =========
-\DeclareCiteCommand{\citetitle}
-  {\boolfalse{citetracker}%
-   \boolfalse{pagetracker}%
-   \usebibmacro{prenote}}
-  {\ifciteindex
-     {\indexfield{indextitle}}
-     {}%
-     \printtext{\printfield{labeltitle}}}
- %\printtext{\printfield{labeltitle}~(\printfield[bibhyperref]{labelyear})}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
 
 % >>>>>>>>> CENTERED COLUMN TYPES =========
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
