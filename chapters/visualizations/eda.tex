@@ -43,28 +43,36 @@ If visual data exploration is chosen first, interaction with the generated visua
 \end{enumerate}
 
 \begin{figure}[!htb]
-  \captionsetup[subfigure]{justification=centering}
-  \centering
-  \begin{subfigure}[t]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{images/va/va-process.png}
-    \caption[
+    \centering
+    \subcaptionbox
+    [
         The visual analytics process is characterised through interaction between data, visualisations, models about the data and the users in order to discover knowledge \iacite{Keim2010}.
-    ]{The visual analytics process is characterised through interaction between data, visualisations, models about the data and the users in order to discover knowledge.}
-    \label{fig:va-process}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{images/va/va-related.png}
-    \caption[
+    ]
+    {
+        The visual analytics process is characterised through interaction between data, visualisations, models about the data and the users in order to discover knowledge.
+        \label{fig:va-process}
+    }
+  [.4\linewidth]
+    {
+        \includegraphics[width=0.4\textwidth,keepaspectratio]
+        {images/va/va-process.png}
+    }
+    \qquad
+    \subcaptionbox
+    [
         Visual analytics with core adjacent disciplines \iacite{Keim2010}.
-    ]{Visual analytics with core adjacent disciplines.}
-    \label{fig:va-related}
-  \end{subfigure}
-  \caption[
-    The visual analytics process with its core adjacent disciplines.
-  ]{
-    The visual analytics process with its core adjacent disciplines.
-  }
+    ]
+    {
+        Visual analytics with core adjacent disciplines.
+        \label{fig:va-related}
+    }
+    [.4\linewidth]
+    {
+        \includegraphics[width=0.4\textwidth,keepaspectratio]
+        {images/va/va-related.png}
+    }
+
+    \caption{The visual analytics process with its core adjacent disciplines.}
 \end{figure}
 
 If automated data and visual data analysis are used in an agile way like iterating both analysis methods in sequence until knowledge is discovered, misleading results in an intermediate step can be discovered and eliminated at an early stage and thus leading to higher confidence and better results \iacite{Keim2010}.
