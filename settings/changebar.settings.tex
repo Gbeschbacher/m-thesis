@@ -1,1 +1,9 @@
-\usepackage{changebar} % adds \cbstart \cbend macros for change bars
+\usepackage[outerbars,color]{changebar} % adds \cbstart \cbend macros for change bars
+
+\ifx\pdfoutput\undefined
+\else\ifnum\pdfoutput>0
+  \usepackage{pdfcolmk}
+\fi\fi
+
+%\setcounter{changebargrey}{60}
+\cbcolor{red}
