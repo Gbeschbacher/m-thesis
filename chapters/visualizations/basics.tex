@@ -1,4 +1,4 @@
-\citeauthor{Munzner2014} answers many questions concerning the usage of visualisations in her book called "Visualization Analysis and Design" \iacite{Munzner2014}. This Chapter will discuss the most important answers because they are a necessity in understanding the questions of when, why and how to visualise. Furthermore, it introduces an analysis framework for visualisation tools in order to
+\citeauthor{Munzner2014} answers many questions concerning the usage of visualisations in her book called ``Visualization Analysis and Design'' \iacite{Munzner2014}. This Chapter will discuss the most important answers because they are a necessity in understanding the questions of when, why and how to visualise. Furthermore, it introduces an analysis framework for visualisation tools in order to
 put different tools in comparison.
 
 From today's perspective with the ability to use artificial intelligence and machine learning, the question if we still need a human in order to create visualisations is valid. This question has a simple answer: if well-defined questions to ask about data exist in advance, it is possible to answer these purely with computational techniques from fields such as statistics and machine learning. If a solution to a problem has been fully automatized and has been deemed to be acceptable, there is no need for human judgement anymore and thus no need to design a visualisation tool. An example of a practical application would be the domain of stock market trading. A tool in that field can be fully automatized. There are currently many deployed systems for high-frequency trading. Those systems make decisions about buying and selling stocks when certain market conditions hold \iacite{Munzner2014}. Some other reasons where computers beat humans are mentioned below:
@@ -39,13 +39,13 @@ One of the most important questions \citeauthor{Munzner2014} answers is called: 
 
 At this time, two out of three main questions for this Chapter have been solved. A visualisation should be made if there are no questions according to given data known in advance. If a visualisation is combined with \ac{EDA}, it emphasizes knowledge construction over knowledge storage or information transmission, therefore answering the question why to visualise.
 
-In order to answer the last main question of this section, \citeauthor{Munzner2014} features figure \ref{fig:how} on page \pageref{fig:how} which provides a preview of a set of design choices, with a high-level breakdown into four major classes:
+In order to answer the last main question of this Section, \citeauthor{Munzner2014} features Figure \ref{fig:how} on page \pageref{fig:how} which provides a preview of a set of design choices, with a high-level breakdown into four major classes:
 
 \begin{enumerate}
 
 \ditem{Encode} \hfill \\
-This first part of the figure deals with the encoding of how to arrange data spatially and shows five different choices:
-    \begin{enumerate*}
+This first part of the Figure deals with the encoding of how to arrange data spatially and shows five different choices:
+    \begin{enumerate*}[label={(\arabic*)}]
     \item express values,
     \item separate,
     \item order and
@@ -74,9 +74,12 @@ The fourth part again mentions three different options for how to reduce the dat
 \label{fig:how}
 \end{figure}
 
-Even though the main questions of this section have been answered, one more question appeared in combination with the analysis framework: what? To summarize the usage of this framework, two more figures are introduced: figure \ref{fig:what} and \ref{fig:why} on page \pageref{fig:what} and \pageref{fig:why}.
+Even though the main questions of this Section have been answered, one more question appeared in combination with the analysis framework: what? To summarize the usage of this framework, two more Figures are introduced: Figure \ref{fig:what} and \ref{fig:why} on page \pageref{fig:what} and \pageref{fig:why}.
 
-Figure \ref{fig:what} starts with differentiating five different types of data (items, attributes, links, positions and grids) which is followed by dataset types consisting of different combinations of these data types. Furthermore, the availability of these datasets can be either immediately in the form of a static file, or in the form of a data stream.
+\cbstart
+Figure \ref{fig:what} starts with differentiating five different types of data (items, attributes, links, positions and grids) which is followed by dataset types consisting of different combinations of these data types. Considering a flat table as an example, the terms used in this thesis are the same as the ones \citeauthor{Munzner2014} uses. A row represents an item of data, whereas each column is an attribute of an item \iacite{Munzner2014}.
+\cbend
+The availability of these datasets can be either immediately in the form of a static file, or in the form of a data stream.
 
 \begin{figure}[!htb]
 \centering
@@ -89,7 +92,7 @@ Figure \ref{fig:what} starts with differentiating five different types of data (
 
 Figure \ref{fig:why} is shown for the sake of completeness in combination with the analysis framework. It features two main parts: the reasons why a visualisation tool is being used (actions and targets). The highest-level actions to use visualisations are either to consume or produce information. The second-level action can be summarized as a search. From an abstract point of view, there is no difference in knowing the target or location a user is looking for or not. It ends up with either looking up that specific target or browsing and exploring the given visualisation in order to find it. At the low level, queries can be divided into three parts: identification of a specific target, comparison of multiple targets and the summarization of all targets.
 The targets for all kinds of data are finding trends and outliers. This can be divided into two parts:
-\begin{enumerate*}
+\begin{enumerate*}[label={(\arabic*)}]
 \item finding one value, the extreme values or the distribution of all values for exactly one attribute, or
 \item finding dependencies, correlations or similarities between multiple attributes.
 \end{enumerate*}
