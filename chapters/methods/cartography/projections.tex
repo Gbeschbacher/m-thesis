@@ -105,30 +105,45 @@ The following list will only feature two common projections with a short descrip
 \label{s:albers-equal-area-projection}
 This projection, as seen in Figure \ref{fig:projections-albers-ea} on page \pageref{fig:projections-albers-ea}, is a conic, area-preserving one where parallels are unequally spaced arcs of concentric circles, whereas meridians are equally spaced radii of the same circles. It features no distortion in scale or shape along two standard parallels, normally, or along just one. Both poles are arcs of circles. The projection is used for regions with predominant east-west expanse \iacite{Snyder1987}.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[height=5cm,keepaspectratio]{images/methods/projections/albers.jpg}
-\caption[
-    Albers equal-area projection, Urldate: 07.2016 \newline
-    \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/1/1f/Albers_projection_SW.jpg}}.
-]{Albers equal-area projection}
-\label{fig:projections-albers-ea}
-\end{figure}
-
 \item[Equidistant Conic Projection] \hfill \\
 Equidistant conic projection displays parallels, including poles, as arcs of concentric circles evenly spaced along the meridians. Like the albers equal-area projection, equidistant projection also displays meridians as equally spaced radii of the same circles and thereby cutting parallels at right angles. The scaling of the map is true along all meridians and along one or two standard parallels \iacite{Snyder1987}. Figure \ref{fig:projections-equidistant} on page \pageref{fig:projections-equidistant} shows similarities to the albers equal-area projection. The major distinction is the distortion of direction, area, and shape according to the distance from standard parallels.
+\end{description}
 
 \begin{figure}[!htb]
-\centering
-\includegraphics[height=5cm,keepaspectratio]{images/methods/projections/equidistant.jpg}
-\caption[
-    Equidistant conic projection, Urldate: 07.2016 \newline
-    \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/d/d8/Equidistant_conic_projection_SW.JPG}}.
-]{Equidistant conic projection}
-\label{fig:projections-equidistant}
+    \centering
+    \subcaptionbox
+    [
+        Albers equal-area projection, Urldate: 07.2016 \newline
+        \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/1/1f/Albers_projection_SW.jpg}}.
+    ]
+    {
+        Albers equal-area projection.
+        \label{fig:projections-albers-ea}
+    }
+  [.4\linewidth]
+    {
+        \includegraphics[width=0.4\textwidth,keepaspectratio]
+        {images/methods/projections/albers.jpg}
+    }
+    \qquad
+    \subcaptionbox
+    [
+        Equidistant conic projection, Urldate: 07.2016 \newline
+        \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/d/d8/Equidistant_conic_projection_SW.JPG}}.
+    ]
+    {
+        Equidistant conic projection.
+        \label{fig:projections-equidistant}
+    }
+    [.4\linewidth]
+    {
+        \includegraphics[width=0.4\textwidth,keepaspectratio]
+        {images/methods/projections/equidistant.jpg}
+    }
+
+    \caption{Conic map projections.}
 \end{figure}
 
-\end{description}
 \paragraph{Azimuthal and related map projections}
 Compared to cylindrical and conic projections which relate to cylinders and cones wrapped around the globe, azimuthal projections are mapped onto a plane. This plane usually is placed tangential at either pole, the equator, or any intermediate point. Each placement bears a different name and is called polar, equatorial and oblique aspects respectively. This type of projection attracted attention with the rise of radio transmission. This is due to the fact, that those type of projections show the direction from the centre of the projection to any other point on the map correctly. Figure \ref{fig:projections-azimuthal} on page \pageref{fig:projections-azimuthal} illustrates a polar azimuthal projection. All meridians are straight lines and radiate at their true angles from the centre, whereas parallels are concentric circles. Most azimuthal projections do not have standard parallels or standard meridians because each map has only one standard point. Azimuthals are not suitable for regions with predominant expanse in one direction because they will maximize distortion \iacite{Snyder1987}.
 
