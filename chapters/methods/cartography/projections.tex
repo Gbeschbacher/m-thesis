@@ -61,32 +61,38 @@ This projection is similar to the basic mercator projection except the main diff
 \end{description}
 
 \begin{figure}[!htb]
-  \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{images/methods/projections/mercator.png}
-    \caption[
+    \centering
+    \subcaptionbox
+    [
         Mercator projection, Urldate: 07.2016 \newline
- \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/f/f0/MercNormSph.png}}.
-    ]{Mercator projection}
-    \label{fig:projections-mercator}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{images/methods/projections/mercator-transverse.png}
-    \caption[
+        \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/f/f0/MercNormSph.png}}.
+    ]
+    {
+        Mercator projection.
+        \label{fig:projections-mercator}
+    }
+  [.4\linewidth]
+    {
+        \includegraphics[width=0.4\textwidth,keepaspectratio]
+        {images/methods/projections/mercator.png}
+    }
+    \qquad
+    \subcaptionbox
+    [
         Transverse mercator projection, Urldate: 07.2016 \newline
         \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/1/15/MercTranSph.png}}.
-    ]{Transverse mercator projection}
-    \label{fig:projections-mercator-transverse}
-  \end{subfigure}
-  \caption[
-    Mercator projection, Urldate: 07.2016 \newline
-    \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/f/f0/MercNormSph.png}}.
-    Transverse mercator projection, Urldate: 07.2016 \newline
-    \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/1/15/MercTranSph.png}}.
-  ]{
-    The mercator projection and its transverse counterpart.
-  }
+    ]
+    {
+        Transverse mercator projection.
+        \label{fig:projections-mercator-transverse}
+    }
+    [.4\linewidth]
+    {
+        \includegraphics[width=0.4\textwidth,keepaspectratio]
+        {images/methods/projections/mercator-transverse.png}
+    }
+
+    \caption{The mercator projection and its transverse counterpart.}
 \end{figure}
 
 \paragraph{Conic map projections}
