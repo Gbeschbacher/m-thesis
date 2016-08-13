@@ -54,31 +54,38 @@ The following list will only feature two common projections accordingly to cylin
 \item[Mercator Projection] \hfill \\
 It is a cylindrical, conformal projection where meridians are equally spaced straight lines, whereas parallels are unequally spaced straight lines. The scale of the map is only true along the equator and loxodromes are straight lines. The biggest distortion appears close to the poles. The major advantage according to \citeauthor{Snyder1987} is the navigational feature that loxodromes are straight lines \iacite{Snyder1987}. Figure \ref{fig:projections-mercator} on page \pageref{fig:projections-mercator} shows an example mercator projection of the earth.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[height=5cm,keepaspectratio]{images/methods/projections/mercator.png}
-\caption[
-    Mercator projection, Urldate: 07.2016 \newline
-    \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/f/f0/MercNormSph.png}}.
-]{Mercator projection}
-\label{fig:projections-mercator}
-\end{figure}
-
 
 \item[Transverse Mercator Projection] \hfill \\
 This projection is similar to the basic mercator projection except the main difference of being transverse in addition. The central meridian and each meridian 90 degrees east and west of the central meridian are straight lines. All other meridians and parallels are complex curves. The scale of the map is only true along the central meridian \iacite{Snyder1987}. Figure \ref{fig:projections-mercator-transverse} on page \pageref{fig:projections-mercator-transverse} illustrates the described characteristics.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[height=5cm,keepaspectratio]{images/methods/projections/mercator-transverse.png}
-\caption[
-    Transverse mercator projection, Urldate: 07.2016 \newline
-    \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/1/15/MercTranSph.png}}.
-]{Transverse mercator projection}
-\label{fig:projections-mercator-transverse}
-\end{figure}
-
 \end{description}
+
+
+\begin{figure}[!htb]
+  \captionsetup[subfigure]{justification=centering}
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{images/methods/projections/mercator.png}
+    \caption[
+        Mercator projection, Urldate: 07.2016 \newline
+        \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/f/f0/MercNormSph.png}}.
+    ]{Mercator projection}
+    \label{fig:projections-mercator}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{images/methods/projections/mercator-transverse.png}
+    \caption[
+        Transverse mercator projection, Urldate: 07.2016 \newline
+        \small\texttt{\url{https://upload.wikimedia.org/wikipedia/commons/1/15/MercTranSph.png}}.
+    ]{Transverse mercator projection}
+    \label{fig:projections-mercator-transverse}
+  \end{subfigure}
+  \caption[
+  ]{
+    The mercator projection and its transverse counterpart.
+  }
+\end{figure}
 
 \paragraph{Conic map projections}
 Conic projections are preferred over cylindrical ones if the purpose of the map is to show a region for which the greatest areal extent is from east to west. This projection type makes use of ``[\ldots] arcs of concentric circles for parallels of latitude and equally spaced straight radii of these circles for meridians'' \iacite{Snyder1987}. The main distinctive feature is based on placing a cone on the top of a globe representing the earth (see Figure \ref{fig:projections-base} on page \pageref{fig:projections-base}).
