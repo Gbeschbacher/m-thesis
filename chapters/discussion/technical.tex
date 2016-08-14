@@ -1,4 +1,4 @@
-The web application consists of two main parts: the first one is the data acquisition and preparation and the second one is the transition manager handling the animation. The first subsection will discuss the restrictions, advantages and disadvantages coming along with the concept used. This discussion is followed by pointing out the strengths and weaknesses of using the transition manager. The discussion is concluded with an analysis of the implementation with the framework presented by \citeauthor{Munzner2014} in chapter \ref{s:basics} on page \pageref{s:basics}.
+The web application consists of two main parts: the first one is the data acquisition and preparation and the second one is the transition manager handling the animation. The first subsection will discuss the restrictions, advantages and disadvantages coming along with the implementation. This discussion is followed by pointing out the strengths and weaknesses of using the transition manager. The discussion is concluded with an analysis of the used technology.
 
 \subsubsection{Data Acquisition and Data Preparation}
 Automatic data acquisition and preparation with GNU-Make is very powerful and flexible. The primal strength of it is that writing a \textit{Makefile} creates a machine-readable documentation for the whole workflow. Recording each step in the process enables reproducibility later on.
@@ -7,32 +7,13 @@ Thinking of GNU-Make as a dependency graph is key. Unlike a linear and sequentia
 The primary setup of pre-calculating every needed information has one major advantage as well as one disadvantage. The client-side web application needs to deliver the file to the client with all information only once. Afterwards, everything can be used without dynamically calculating values. On the one side, the initial loading time of the application is significantly higher compared to only delivering the boundary informations. On the other hand, the acquisition and calculation of data later yields to performance drops whenever the data is needed.
 A significant drawback using this setup is that showing additional information to an aggregated symbol is not possible. A thematic map based on aggregation fully relys on the preprocessed dataset. Therefore, showing additional information on the dot-map would make use of the Superstore-Sale dataset with all information accessible, whereas showing additional information for symbols or units in aggregated thematic maps depends on the preprocessed boundary file. From an abstract point of view, the practical implementation uses two different source files for showing one phenomenon, yielding to inconsistency when allowing interaction with the visualisation. Changing the visual appearance also changes their base-data and therefore consistency in interaction concepts is not possible and therefore left out.
 
-\subsubsection{Animated Transition}
+\subsubsection{Transition Manager}
 The implemented transition manager is a key part of the practical application. It specifies some kind of structure to all visualisation classes. Each step of a transition needs to be implemented in the actual class and the manager only calls the exposed functions in the correct order to create the animated transition. This concept ensures separation of concerns of each exposed function and therefore guaranteeing modularity in creating animated transitions.
 
 The transition table \ref{tab:transition-table} on page \pageref{tab:transition-table} mentions shape transitions which are not yet implemented. This is due to the GeoJSON file acquired from the census bureau. Every enumeration unit is specified as a multipolygon. The GeoJSON specification defines multipolygons as a collection of polygons and polygons as an array of coordinates. However, a polygon can contain multiple rings. If this is the case, the first ring must be the exterior one and any others must be interior rings or holes.
 Animating the morphing of an enumeration unit to a symbol would require the starting point to be a polygon in order to create a smooth transition. However, merging the multipolygon of an enumeration unit to a single polygon containing only a single outer ring is not possible. A point in the multipolygon and therefore in the map is unique. This makes it impossible to find the outer ring of multiple polygons.
 Another possibility in animated morphing would be to morph each polygon to a particular segment of the symbol. With the current data, the transition will not look smooth. Some polygons in enumeration units are hidden behind the default symbol, therefore an animated morphing of those would look like a random symbol segment appearing without noticing the origin of the polygon.
 
-\subsubsection{Analysis-Framework}
-
-% what
-% tables and geometry (spatial data)
-% static data
-The implemented web application is based on two datasets: a tabular dataset (SuperStore-Sale) and a spatial one (boundaries). These datasets are statically preprocessed and used. This information already answers the question of what the application visualises.
-
-% why
-% main task is to discover information and derive next steps
-% targets and locations are unkown and therefore the visualisation is used to explore the data
-% comparing the same information between different types of visualisations is possible with in-place transitions
-Furthermore, the main objective of the application is to consume a lot of information and derive knowledge to set up possible next steps. According to the used dataset, the target of a task could be to identify an area of the United States with a lot of orders. Therefore, the target is known and the location is unkown, leading to location according to figure \ref{fig:why} on page \pageref{fig:why}. Querying a visualisations is only available in a limited way. The implemented in-place transitions between different thematic maps allow comparing the same information with an animated transition in different visualisations.
-
-% how
-% all encoded on a map with size and color as a main mapping method
-% however, changing the visual appearance also uses motion
-% manipulating the visual appearance is possible with changing the level of detail, colorscheme and particle speed;
-% reducing the displayed information in any kind is not possible at all; due to the pre-defined characteristics of each visualisation type
-Overall, the application uses static encodings like colour, size and shapes for the different types of maps and motion when changing the visual appearance. This already leads to the possibilities in manipulation. Changing the level of detail, colour scheme and particle speed allow for exploring different settings. However, reducing or changing the displayed information is not possible at all. The implemented types of maps have very specific characteristics, making a consistent aggregation or filtering of information impracticable.
 
 \subsubsection{Used Technology}
 Using ECMAScript6 was not the best choice. Decker presents ECMAScript6 polyfill performance tests. He implements a specific feature with multiple JavaScript versions and compairs their runtime. Furthermore, he uses multiple different transpilers yielding considerable results. The following discussion only includes features which are used in the practical application. It also focuses on the results for Chrome 51, because this is the browser version used for testing the application \iacite{Decker2016}.

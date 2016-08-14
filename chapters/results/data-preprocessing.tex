@@ -1,4 +1,4 @@
-As the section before already showed, three different files are now accessible. However, in order to actually use these files, some preprocessing is needed. This chapter is divided into three parts. The first one will discuss the preparation of the Superstore-Sale dataset, the second one will explain how to get boundaries and population out of the downloaded zip-files, and the third one will demonstrate how these files can be merged.
+As the Section before already showed, three different files are now accessible. However, in order to actually use these files, some preprocessing is needed. This Chapter is divided into three parts. The first one will discuss the preparation of the Superstore-Sale dataset, the second one will explain how to get boundaries and population out of the downloaded zip-files, and the third one will demonstrate how these files can be merged.
 
 \subsubsection{Preprocessing Superstore-Sale}
 First of all, some numbers in this dataset are shown in a different format. Converting all numbers to the same format is essential.
@@ -90,7 +90,7 @@ With this task, a file containing all cartographic boundaries for all counties e
 %TC:endignore
 
 \subsubsection{Merging Superstore-Sale with Cartographic Boundaries and Population}
-This section mainly discusses pre-processing steps of one of the two methods mentioned to implement an aggregated thematic map (see chapter \ref{s:web-application} on page \pageref{s:web-application} for more information). The objective of merging Superstore-Sale with the already preprocessed boundary and population files is to have one file including all aggregated values of orders and population per county and state. Such a file can be used to show all orders including the population for each county or state without the need of dynamically calculating it.
+This Section mainly discusses pre-processing steps of one of the two methods mentioned to implement an aggregated thematic map (see Chapter \ref{s:web-application} on page \pageref{s:web-application} for more information). The objective of merging Superstore-Sale with the already preprocessed boundary and population files is to have one file including all aggregated values of orders and population per county and state. Such a file can be used to show all orders including the population for each county or state without the need of dynamically calculating it.
 In order to aggregate the orders and population on a county level of detail, listing \ref{lst:data-acqu-topo1} on page \pageref{lst:data-acqu-topo1} needs some adaptations with a new starting file. Using the already preprocessed Superstore-Sale dataset, it is possible to create a new file with the aggregated information. Listing \ref{lst:data-prep-amount} on page \pageref{lst:data-prep-amount} iterates the given dataset, creates a county-based dictionary counting all objects having the same county and writes the information back to a file.
 
 %TC:ignore
