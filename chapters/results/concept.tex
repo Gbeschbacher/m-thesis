@@ -50,43 +50,75 @@ The implemented web application is accessible online\footnote{See \href{https://
 
 The implemented application only features basic interaction methods. Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows a navigation bar and the configurable settings. Changing the visual appearance can be achieved by interacting with the bar. If changing any kind of configuration is desired, e.g. the speed of moving particles or the level of detail shown, this can be done by using the graphical user interface in the top right.
 
-\begin{figure*}
-    \centering
-    \begin{subfigure}[b]{0.475\textwidth}
+\begin{figure}[!htb]
+
+   \begin{minipage}{\linewidth} 
         \centering
-        \includegraphics[width=\textwidth]{images/results/map_dot.png}
-        \caption[Particle-based dot map]%
-        {{\small Particle-based dot map}}
-        \label{f:showcase-dot}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.475\textwidth}
+        \subcaptionbox
+        [
+            Particle-based dot map        
+        ]
+        {
+            Particle-based dot map.
+            \label{f:showcase-dot}
+        }
+        [.4\linewidth]
+        {
+            \includegraphics[width=0.4\textwidth,keepaspectratio]
+            {images/results/map_dot.png}
+        }
+        \qquad
+        \subcaptionbox
+        [
+          Multivariate classed proportional symbol map
+        ]
+        {
+            Multivariate classed proportional symbol map
+            \label{f:showcase-psm}
+        }
+        [.4\linewidth]
+        {
+            \includegraphics[width=0.4\textwidth,keepaspectratio]
+            {images/results/map_psm.png}
+        }
+   \end{minipage} 
+
+   \begin{minipage}{\linewidth} 
         \centering
-        \includegraphics[width=\textwidth]{images/results/map_psm.png}
-        \caption[Proportional symbol map]%
-        {{\small Multivariate classed proportional symbol map}}
-        \label{f:showcase-psm}
-    \end{subfigure}
-    \vskip\baselineskip
-    \begin{subfigure}[b]{0.475\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/results/map_choropleth.png}
-        \caption[Choropleth map]%
-        {{\small Classed choropleth map}}
-        \label{f:showcase-choropleth}
-    \end{subfigure}
-    \quad
-    \begin{subfigure}[b]{0.475\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/results/map_cartogram.png}
-        \caption[Pseudo-Demers cartogram]%
-        {{\small Classed Pseudo-Demers cartogram}}
-        \label{f:showcase-cartogram}
-    \end{subfigure}
+        \subcaptionbox
+        [
+            Classed choropleth map.
+        ]
+        {
+            Classed choropleth map.
+            \label{f:showcase-choropleth}
+        }
+        [.4\linewidth]
+        {
+            \includegraphics[width=0.4\textwidth,keepaspectratio]
+            {images/results/map_choropleth.png}
+        }
+        \qquad
+        \subcaptionbox
+        [
+          Classed Pseudo-Demers cartogram.
+        ]
+        {
+            Classed Pseudo-Demers cartogram
+            \label{f:showcase-cartogram}
+        }
+        [.4\linewidth]
+        {
+            \includegraphics[width=0.4\textwidth,keepaspectratio]
+            {images/results/map_cartogram.png}
+        }
+   \end{minipage} 
     \caption[The implemented web-application showing four different types of geo-spatial map visualisations and with its interaction possibilities.]
-    {\small The implemented web-application showing four different types of geo-spatial map visualisations and with its interaction possibilities.}
+    {The implemented web-application showing four different types of geo-spatial map visualisations and with its interaction possibilities.}
     \label{f:showcase-overall}
-\end{figure*}
+\end{figure}
+
+
 
 Furthermore, Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows the implemented geo-spatial map visualisations. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the multivariate classed proportional symbol map, \ref{f:showcase-choropleth} the classed choropleth map and \ref{f:showcase-cartogram} the classed Pseude-Demers cartogram.
 
