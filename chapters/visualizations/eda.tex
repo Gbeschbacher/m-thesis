@@ -1,4 +1,4 @@
-\citeauthor{Tukey1977} introduced and promoted the term of \ac{EDA} in 1977 to encourage statisticians to explore data and possibly formulate hypotheses that could lead to new data collection and experiments. Many \ac{EDA} ideas can be traced back to earlier authors, but \citeauthor{Tukey1977} summarized all of those ideas with the introduced term. Even though the earlier ideas have all been in combination with statistics, \citeauthor{Tukey1977} encouraged the research field of statistics to use the capabilities of dynamic visualisations in combination with given data. Before that encouragement, statisticians had a strong focus on statistical hypothesis testing without any visualisation. This development supported the identification of outliers, trends and patterns in data in a visual and understandable way \iacite{Tukey1977}. Thus it is possible to derive objectives of \ac{EDA} as follows \iacite{Behrens1997}:
+\citeauthor{Tukey1977} introduced and promoted the term of \ac{EDA} in 1977 to encourage statisticians to explore data and possibly formulate hypotheses that could lead to new data collection and experiments. Many \ac{EDA} ideas can be traced back to earlier authors, but \citeauthor{Tukey1977} summarised all of those ideas with the introduced term. Even though the earlier ideas have all been in combination with statistics, \citeauthor{Tukey1977} encouraged the research field of statistics to use the capabilities of dynamic visualisations in combination with given data. Before that encouragement, statisticians had a strong focus on statistical hypothesis testing without any visualisation. This development supported the identification of outliers, trends and patterns in data in a visual and understandable way \iacite{Tukey1977}. Thus it is possible to derive objectives of \ac{EDA} as follows \iacite{Behrens1997}:
 
 \begin{itemize}
 
@@ -9,9 +9,9 @@
 
 \end{itemize}
 
-As of today, there are a number of techniques assisting the field of \ac{EDA}, but the field is more characterized by the attitude taken than by particular techniques \iacite{Tukey1980}. Typical graphical techniques used in \ac{EDA} are box plots, histograms, scatter plots, stem-and-leaf plots, and so forth. This Section will only discuss histograms in detail.
+As of today, there are a number of techniques assisting the field of \ac{EDA}, but the field is more characterised by the attitude taken than by particular techniques \iacite{Tukey1980}. Typical graphical techniques used in \ac{EDA} are box plots, histograms, scatter plots, stem-and-leaf plots, and so forth. This Section will only discuss histograms in detail.
 
-\citeauthor{Pearson1895} introduced histograms as a graphical representation of the distribution of numerical data. It is an estimate of the probability distribution of a quantitative variable \iacite{Pearson1895}. As the history of visualisation shows (see Chapter \ref{s:history} on page \pageref{s:history} for more detail), cartography also had the goal to visualise distributions on thematic maps. It especially emphasized a spatial variation of one or a small number of geographic distributions.
+\citeauthor{Pearson1895} introduced histograms as a graphical representation of the distribution of numerical data. It is an estimate of the probability distribution of a quantitative variable \iacite{Pearson1895}. As the history of visualisation shows (see Chapter \ref{s:history} on page \pageref{s:history} for more detail), cartography also had the goal to visualise distributions on thematic maps. It especially emphasised a spatial variation of one or a small number of geographic distributions.
 
 \cbstart
 However, it is needed to consider the task of a visualisation, as already discussed in Chapter \ref{s:basics} on page \pageref{s:basics}. If a visualisation is not used by the creator and therefore does not fulfill the task of exploring unknown data and deriving new knowledge, it is used to present the given data in some way. A visualisation created for presentation is limited in the kinds of data and tasks it can address. Addressing such a task with a visualisation does not require the user to have domain knowledge. The cruical point of presenting information is that the underlying data is already understood by the creator and the visualisation was created to present the results to an audience \iacite{Munzner2014}.
@@ -24,7 +24,7 @@ According to \citeauthor{Keim2010}, visual analytics ``[\ldots] is not easy to d
 So, based on the definition, \citeauthor{Keim2010} elaborate the objectives of visual analytics to state that it is the creation of tools and techniques to enable people to:
 
 \begin{itemize}
-\item Summarize information and derive insight from heterogeneous and often conflicting data
+\item Summarise information and derive insight from heterogeneous and often conflicting data
 \item Detect the expected and discover the unexpected
 \item Provide reasonable and understandable evaluations
 \item Communicate these evaluations effectively for action
@@ -32,11 +32,11 @@ So, based on the definition, \citeauthor{Keim2010} elaborate the objectives of v
 
 The following part of this Section gives an overview of how visual analytics tries to achieve these objectives to generate knowledge from data. Based upon the knowledge gathered in this Section and the Sections before, it is possible to derive design principles for good visualisations.
 
-Figure \ref{fig:va-process} on page \pageref{fig:va-process} shows an abstract overview of the visual analytics process. It contains different stages, represented as colored ovals, and their corresponding transitions, represented as arrows. The first step of the process deals with the integration of heterogeneous data sources. This integration includes tasks like data preprocessing, transforming, cleaning, normalization, grouping, and fusion. All those tasks are indicated by the transformation transition onto the data oval. After the transformation, the analyst has two different options to choose \iacite{Keim2010}:
+Figure \ref{fig:va-process} on page \pageref{fig:va-process} shows an abstract overview of the visual analytics process. It contains different stages, represented as colored ovals, and their corresponding transitions, represented as arrows. The first step of the process deals with the integration of heterogeneous data sources. This integration includes tasks like data preprocessing, transforming, cleaning, normalisation, grouping, and fusion. All those tasks are indicated by the transformation transition onto the data oval. After the transformation, the analyst has two different options to choose \iacite{Keim2010}:
 
 \begin{enumerate}
 \ditem{Automated data analysis} \hfill \\
-If an automated model was chosen first, data mining methods are applied to generate statistical models out of the original data. Once the model is made, the analyst only needs to refine its parameters and evaluate it afterwards. The advantage of this choice is the scalability because it can be fully automatized. This automatization is also the main disadvantage. The model runs in a black box fashion, ignoring all interactions. If this is done, the evaluation of the model can be accomplished with a visualisation. This makes it possible to interact with the data later on \iacite{Keim2010}.
+If an automated model was chosen first, data mining methods are applied to generate statistical models out of the original data. Once the model is made, the analyst only needs to refine its parameters and evaluate it afterwards. The advantage of this choice is the scalability because it can be fully automatised. This automatization is also the main disadvantage. The model runs in a black box fashion, ignoring all interactions. If this is done, the evaluation of the model can be accomplished with a visualisation. This makes it possible to interact with the data later on \iacite{Keim2010}.
 
 \ditem{Visual data exploration} \hfill \\
 If visual data exploration is chosen first, interaction with the generated visualisation is needed to construct insightful information. Interaction could be integrated by zooming or considering different views on the data. Findings can be used to create automatic models. The main advantage of this approach is the interaction with an analyst, thus offering more flexibility and possibilities. On the other hand, it is not scaleable in any way.
@@ -77,6 +77,6 @@ If visual data exploration is chosen first, interaction with the generated visua
 
 If automated data and visual data analysis are used in an agile way like iterating both analysis methods in sequence until knowledge is discovered, misleading results in an intermediate step can be discovered and eliminated at an early stage and thus leading to higher confidence and better results \iacite{Keim2010}.
 
-In summary, it can be said that the visual analytics process extracts knowledge gained from visualisations, automatized analysis, and a human analyst combining these two.
+In summary, it can be said that the visual analytics process extracts knowledge gained from visualisations, automatised analysis, and a human analyst combining these two.
 
 Figure \ref{fig:va-related} on page \pageref{fig:va-related} shows the interdisciplinary character of visual analytics. With visualisation as its core, other disciplines like data management, data analysis, and data mining are close related and seem kind of obvious based on the knowledge of the visual analytics process and the definition of the term itself.
