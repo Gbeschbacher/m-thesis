@@ -35,7 +35,7 @@ This class is one of the main classes inside the application. It is needed to no
 
       let areParticlesAnimating = this.particlesContainer.nextStep();
       let isNewVisualizationAnimating = this.visualization.nextStep();
-      let isOldVisualizationAnimating =  ? this.visualizationOld.nextStep() : false;
+      let isOldVisualizationAnimating = this.visualizationOld ? this.visualizationOld.nextStep() : false;
 
       if (!areParticlesAnimating && !isOldVisualizationAnimating &&
         !isNewVisualizationAnimating && this.animationQueue.length > 0) {
