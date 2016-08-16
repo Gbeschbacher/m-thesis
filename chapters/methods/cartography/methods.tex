@@ -1,6 +1,9 @@
 The two major categories of cartography are general cartography and thematic cartography, which are introduced in Chapter \ref{s:cartography} on page \pageref{s:cartography}. This categorisation can be directly adopted from cartography to maps. The main objective of this Chapter is to give an overview of different thematic maps and their usage. These maps can be subdivided into univariate and multivariate maps.
 
-Univariate maps are only dependent on one variable, except for the map variables like latitude and longitude. The following Sections describe univariate thematic map visualisations in detail, followed by their appropriate multivariate version. In general, multivariate maps are dependent on multiple variables. Therefore, each variable is mapped to a different visual channel. The described multivariate map types only give an overview for the sake of convenience and are not explained in detail. However, in order to fully understand them, it is needed to read the Section containing the corresponding univariate map visualisation first, because shared characteristics between univariate and multivariate maps are not described twice.
+\cbstart
+Univariate maps are only dependent on one variable, except for the map variables like latitude and longitude. The following Sections describe univariate thematic map visualisations in detail. Besides geo-spatial visualisations mapping a single attribute, there are also visualisations mapping multiple attributes. These are called multivariate types of visual representations. Each attribute on such a type of visualisation is mapped to a different visual channel. However, it is needed to consider the already used channel depending on the type of visualisation. As an example, a proportional symbol map already uses size As a visual channel and therefore a new attribute cannot use size as its visual channel.
+Apart from the amount of attributes mapped to a geo-spatial visualisation, univariate and multivariate visual representations share their characteristics.
+\cbend
 
 \paragraph{Dot density map}
 \label{s:dot}
@@ -15,12 +18,3 @@ Univariate maps are only dependent on one variable, except for the map variables
 
 \paragraph{Cartogram}
 \input{chapters/methods/cartography/univariate/cartogram}
-
-\paragraph{Multivariate Proportional Symbol Map}
-\input{chapters/methods/cartography/multivariate/psm}
-
-\paragraph{Multivariate Choropleth Map}
-\input{chapters/methods/cartography/multivariate/choropleth}
-
-\paragraph{Multivariate Cartogram}
-\input{chapters/methods/cartography/multivariate/cartogram}

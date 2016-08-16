@@ -1,5 +1,14 @@
-% marc fragen, was hier noch stehen soll
-% \subsubsection{Analysis-Framework}
+\cbstart
+The concept shown in this thesis consists of two main parts:
+\begin{enumerate*}[label={(\arabic*)}]
+\item transitions between geo-spatial visualisations and
+\item the user study trying to find out the effectiveness of the transitions.
+\end{enumerate*}
+
+The first subsection will feature an analysis based on the mentioned framework by \citeauthor{Munzner2014}. This analysis yields an outline of what is visualised, why it is visualised and how it is accomplished. The second subsection discusses the conducted user study and points out the strengths and weaknesses of the used study design.
+\cbend
+
+\subsubsection{Analysis-Framework}
 The implemented web application is based on two datasets: a tabular dataset (SuperStore-Sale) and a geo-spatial one (boundaries). These datasets are statically preprocessed and used. This information already answers the question of what the application visualises.
 
 \cbstart
@@ -7,3 +16,7 @@ Furthermore, the main objective of the visualisations is to consume information,
 \cbend
 
 Overall, the application uses static encodings like colour, size and shapes for the different types of maps and motion when changing the visual appearance. This already leads to the possibilities in manipulation. Changing the level of detail, colour scheme and particle speed allow for exploring different settings. However, reducing or changing the displayed information is not possible at all. The implemented types of maps have very specific characteristics, making a consistent aggregation or filtering of information impracticable.
+
+\subsubsection{User Study}
+\label{s:discussion-study}
+\input{chapters/discussion/study}
