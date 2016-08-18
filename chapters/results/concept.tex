@@ -1,32 +1,5 @@
 \label{s:animated-transitions-implemented}
-The implemented animated transitions between visual appearances are shown in Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented}. Every transition is described with abbreviations in the table which are explained in detail in the description list below. A cell containing several abbreviations denotes the transition flow step by step. Thus, the list consists of basic transitions which are combined in various ways in order to achieve an animated transition from one visualisation type to another one.
-
-\begin{description}
-\item[Area-colour] \hfill \\
-Colouring enumeration units where the colour either is determined by the current selected colour scheme or the default colour.
-
-\item[CB-colour] \hfill \\
-Centroid-based colouring is only used in conjunction the \textit{Draw default}-transition. Particles moving to its centroid colour their appropriate symbol when reaching the centroid.
-
-\item[Draw defaults] \hfill \\
-Default symbols (circles) are drawn for each enumeration unit at its centroid. Each circle has a default radius. This transition state is mainly used to set up following ones.
-
-\item[Force] \hfill \\
-This transition state is only used to create cartograms. Force is dependent on symbols in the screen. It applies collision detection and gravity on those symbols in order to create the Pseudo-Demers cartogram.
-
-\item[Origin-colour] \hfill \\
-Origin-colour is the exact opposite of "CB-Colour. All particles are moving from their centroid to their origin location. When leaving their appropriate symbol, the colour of the symbol adapts accordingly.
-
-\item[Scale] \hfill \\
-Scaling is also dependent on existing symbols. When scaling is triggered, all symbols are either scaled to their population or back to a default value.
-
-\item[Symbol-colour] \hfill \\
-All symbols are coloured at once appropriately to their amount of orders.
-
-\item[Symbol-translation] \hfill \\
-If the current visualisation is a cartogram and the user wishes to change the visual appearance, all symbols need to move back to their origin again.
-
-\end{description}
+The implemented animated transitions between visual appearances are shown in Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented}. Every transition is described with abbreviations in the table which is explained in detail in Chapter \ref{s:transition-concept} on page \pageref{s:transition-concept}. A cell containing several abbreviations denotes the transition flow step by step. Thus, the cells consist of basic transitions which are combined in various ways in order to achieve an animated transition from one geo-spatial visualisation type to another one.
 
 \begin{table}[!htp]
     \begin{tabular}{M{27mm}|| M{27mm} | M{27mm} | M{27mm} | M{27mm} N}

@@ -1,0 +1,25 @@
+Changing the type of a geo-spatial visualisation can be provided with two different types of transitions:
+
+\begin{enumerate}
+
+\ditem{In-place transition} \hfill \\
+Changing from one kind of a thematic map to another one with in-place transition denotes the concept of creating the upcoming visualisation. Starting with an overview grid and having a dot map as an upcoming visualisation would move all particles in the same canvas to their geographical position. Having a map in the background when changing from an abstract grid to a thematic map could support the comprehensibility.
+If the user determines to change the visual appearance to some other kind of thematic map, the particles would need to move according to the characteristics of the upcoming visualisation. Without consideration of using other visual channels except motion, in-place transitions have multiple advantages:
+\begin{itemize}
+\item Semantic constancy
+\item Amount of particles stays the same throughout the application (this becomes more clear when reading non in-place transitions)
+\end{itemize}
+
+\ditem{Non in-place transitions} \hfill \\
+Animating the transition from one thematic map to another can also be done with an adaption of the multiple views concept. \citeauthor{Javed2012} present different visualisation compositions which can be adopted for animated transitions as well \iacite{Javed2012}:
+\begin{itemize}
+\item \textbf{Juxtaposition:} placing visualisations side-by-side in one view
+\item \textbf{Superimposition:} overlaying two visualisations in one view
+\item \textbf{Overloading:} utilising the space of one visualisation
+\item \textbf{Nesting:} nesting the contents of one visualisation inside another one
+\end{itemize}
+
+All of the mentioned compositions can be accomplished in two different ways. Either each particle updates its position according to the upcoming visualisation, or each particle is cloned, and the clone updates its position accordingly. The latter method has the major drawback of scaling poorly because a dataset with $n$ items would need $2*n$ particles when changing the visual appearance.
+\end{enumerate}
+
+Both transition types perhaps share the same advantage: using some kind of animated transition between two different visual appearances for the same data could support the readability of the visualisation. Howsoever the particles move, it could help to understand how the visualisation is created and therefore could support knowledge construction of benefits and drawbacks.
