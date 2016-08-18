@@ -1,4 +1,3 @@
-\cbstart
 \citeauthor{Heer2007} describe a tool called DynaVis which makes use of animated transitions between different visualisations. Users often switch the type of a visualisation in order to answer different questions concerning underlying data. However, doing this transition in a static way leads to information loss of the former visualisation. Thus, animating the transition of the current visualisation to the upcoming one could result in better comprehensibility of the upcoming visualisation. The cruical point of an animated transition is to keep the users oriented during the transition. The best case of an animated transition would be that users are able to accurately identify elments across disparate visualisations and understand the connections between them.
 
 \citeauthor{Heer2007} investigate the design of animated transitions between statistical data graphics. Furthermore, they propose design guidelines for animated transitions which are discussed below. The primary contribution of \citeauthor{Heer2007} is two conducted user studies to assess the efficiency of animated transitions \iacite{Heer2007}.
@@ -27,7 +26,6 @@ The following design principles can be categorised into two sections: congruence
 \end{itemize}
 
 DynaVis is shown in Figure \ref{fig:dynavis} on page \pageref{fig:dynavis}. It features two different types of animated transitions from a scatter plot to a bar chart. The top path directly interpolates between the starting and ending visualisation, whereas the bottom path makes use of staging. The points in the scatter plot move to their corresponding x-coordinate and the axis is updated. Afterwards, the points are morphed into bars resulting in the desired visualisation.
-\cbend
 
 \begin{figure}[!htb]
 \centering
@@ -38,8 +36,6 @@ DynaVis is shown in Figure \ref{fig:dynavis} on page \pageref{fig:dynavis}. It f
 \label{fig:dynavis}
 \end{figure}
 
-\cbstart
 The herein before mentioned user studies concerning the effectiveness of DynaVis showed, that animated transitions support the user's perception and increases the readability of the visualisation. Furthermore, the studies showed that staged animations are preferred compared to direct interpolations.
 
 In summary, using staged animations with considering the mentioned design principles could also work for geo-spatial visualisations. Thus, it could support the understandability and readability of different types of geo-spatial visualisations.
-\cbend
