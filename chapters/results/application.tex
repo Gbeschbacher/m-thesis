@@ -29,28 +29,6 @@ If an animation is assigned to particles, it is stored in the \textit{AnimationQ
 This class is one of the main classes inside the application. It is needed to not compare it with an HTML-Canvas object. It is responsible for creating the base-canvas of the web-application. Furthermore, it is used to change and update the visual appearance if any interaction happens. A key part of the canvas class is the render function shown in Listing \ref{lst:canvas-render} on page \pageref{lst:canvas-render}. It starts off with calling the same function again as soon as possible. The caller-function \textit{requestAnimationFrame} ensures, that the next frame will only be shown if enough resources of the browser are available. Afterwards, all particles and visualisations are animated if something changed. The last line of the listing shows the \ac{Pixi}-renderer. Listing \ref{lst:canvas-autodecet-renderer} on page \pageref{lst:canvas-autodecet-renderer} shows its creation. It features the main canvas-size, background transparency and antialiasing. The renderer provides considerably more options which are not used.
 
 %TC:ignore
-\begin{lstlisting}[language=JavaScript, caption={Render function of the canvas class.}, label={lst:canvas-render}]
-    render() {
-      this.requestFrameID = requestAnimationFrame(this.render.bind(this));
-
-      let areParticlesAnimating = this.particlesContainer.nextStep();
-      let isNewVisualizationAnimating = this.visualization.nextStep();
-      let isOldVisualizationAnimating = this.visualizationOld ? this.visualizationOld.nextStep() : false;
-
-      if (!areParticlesAnimating && !isOldVisualizationAnimating &&
-        !isNewVisualizationAnimating && this.animationQueue.length > 0) {
-
-        this.animationQueue.pop()();
-        this.particlesContainer.startAnimation();
-        this.visualization.startAnimation();
-        if (this.visualizationOld){
-            this.visualizationOld.startAnimation();
-        }
-      }
-      this.renderer.render(this.stage);
-    }
-\end{lstlisting}
-
 \begin{lstlisting}[language=JavaScript, caption={Pixi's autodetect-renderer.}, label={lst:canvas-autodecet-renderer}]
     this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {
         transparent: true,
@@ -58,6 +36,28 @@ This class is one of the main classes inside the application. It is needed to no
         antialias: true
     });
     document.body.appendChild(this.renderer.view);
+\end{lstlisting}
+
+\begin{lstlisting}[language=JavaScript, caption={Render function of the canvas class.}, label={lst:canvas-render}]
+    render() {
+      this.requestFrameID = requestAnimationFrame(this.render.bind(this));
+      let pC = this.particlesContainer;
+      let vis = this.visualization;
+      let visOld = this.visualizationOld;
+      let queue = this.animationQueue;
+      let areParticlesAnimating = pC.nextStep();
+      let isNewVisAnimating = vis.nextStep();
+      let isOldVisAnimating = visOld ? visOld.nextStep() : false;
+
+      if (!areParticlesAnimating && !isOldVisAnimating &&
+      !isNewVisAnimating && queue.length > 0) {
+        queue.pop()();
+        pC.startAnimation();
+        vis.startAnimation();
+        if (visOld) visOld.startAnimation();        
+      }
+      this.renderer.render(this.stage);
+    }
 \end{lstlisting}
 %TC:endignore
 
@@ -147,19 +147,12 @@ The \textit{DotMap} class is the first one to show data on the base-map. It does
 \begin{lstlisting}[language=JavaScript, caption={Particles on a dot map getting animated.}, label={lst:dot-draw-animated}]
     for(let particle of this.particles){
         point = [particle.data.Longitude, particle.data.Latitude];
-        point = this.baseMap.projection(point);
-        particle.coords = point;
-        particle
-        .setPosition(
+        particle.coords = this.baseMap.projection(point);
+        particle.setPosition(
             particle.coords[0]-(this.size/2),
             particle.coords[1]-(this.size/2)
-        )
-        .setSize(
-            this.size,
-            this.size
-        );
+        ).setSize(this.size, this.size);
     }
-
 \end{lstlisting}
 %TC:endignore
 
