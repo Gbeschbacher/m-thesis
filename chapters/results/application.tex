@@ -26,7 +26,7 @@ An object of the DataStore-class is used to load the SuperStore-Sale dataset. In
 If an animation is assigned to particles, it is stored in the \textit{AnimationQueue}. This allows to create multiple canvas-based animations and process them sequentially.
 
 \item[Canvas] \hfill \\
-This class is one of the main classes inside the application. It is needed to not compare it with an HTML-Canvas object. It is responsible for creating the base-canvas of the web-application. Furthermore, it is used to change and update the visual appearance if any interaction happens. A key part of the canvas class is the render function shown in listing \ref{lst:canvas-render} on page \pageref{lst:canvas-render}. It starts off with calling the same function again as soon as possible. The caller-function \textit{requestAnimationFrame} ensures, that the next frame will only be shown if enough resources of the browser are available. Afterwards, all particles and visualisations are animated if something changed. The last line of the listing shows the \ac{Pixi}-renderer. Listing \ref{lst:canvas-autodecet-renderer} on page \pageref{lst:canvas-autodecet-renderer} shows its creation. It features the main canvas-size, background transparency and antialiasing. The renderer provides considerably more options which are not used.
+This class is one of the main classes inside the application. It is needed to not compare it with an HTML-Canvas object. It is responsible for creating the base-canvas of the web-application. Furthermore, it is used to change and update the visual appearance if any interaction happens. A key part of the canvas class is the render function shown in Listing \ref{lst:canvas-render} on page \pageref{lst:canvas-render}. It starts off with calling the same function again as soon as possible. The caller-function \textit{requestAnimationFrame} ensures, that the next frame will only be shown if enough resources of the browser are available. Afterwards, all particles and visualisations are animated if something changed. The last line of the listing shows the \ac{Pixi}-renderer. Listing \ref{lst:canvas-autodecet-renderer} on page \pageref{lst:canvas-autodecet-renderer} shows its creation. It features the main canvas-size, background transparency and antialiasing. The renderer provides considerably more options which are not used.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Render function of the canvas class.}, label={lst:canvas-render}]
@@ -78,7 +78,7 @@ This class is mainly used to wrap all functionality of the \ac{D3} library. It f
 \end{lstlisting}
 %TC:endignore
 
-Another key part of this class is featured in listing \ref{lst:d3-topojson} on page \pageref{lst:d3-topojson}. It shows how TopoJSON is used on the client. The filter function passed to the first \textit{TopoJSON.mesh}-function specifies that only internal state borders should be used. Thus, coastlines will not be drawn to retain detail around small islands and inlets. The filter function passed to the second \textit{TopoJSON.mesh}-function extends the first one by only showing each county boundary once. Thus, if two counties share the same border, it is only drawn once later on.
+Another key part of this class is featured in Listing \ref{lst:d3-topojson} on page \pageref{lst:d3-topojson}. It shows how TopoJSON is used on the client. The filter function passed to the first \textit{TopoJSON.mesh}-function specifies that only internal state borders should be used. Thus, coastlines will not be drawn to retain detail around small islands and inlets. The filter function passed to the second \textit{TopoJSON.mesh}-function extends the first one by only showing each county boundary once. Thus, if two counties share the same border, it is only drawn once later on.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={TopoJSON usage on the client with the adaption of merging all geographic information.}, label={lst:d3-topojson}]
@@ -103,7 +103,7 @@ Another key part of this class is featured in listing \ref{lst:d3-topojson} on p
 \end{lstlisting}
 %TC:endignore
 
-Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}-function shown in listing \ref{lst:d3-calculate-centroids} on page \pageref{lst:d3-calculate-centroids}. It pre-calculates a look-up dictionary for the given level of detail for each data item. Thus, it provides a huge performance boost when finding out the centroid of a unit later on.
+Another important aspect of the \ac{D3} class is the \textit{calculateCentroids}-function shown in Listing \ref{lst:d3-calculate-centroids} on page \pageref{lst:d3-calculate-centroids}. It pre-calculates a look-up dictionary for the given level of detail for each data item. Thus, it provides a huge performance boost when finding out the centroid of a unit later on.
 
 %TC:ignore
 \begin{lstlisting}[language=JavaScript, caption={Calculate a look-up dictionary for all data items depending on the level of detail.}, label={lst:d3-calculate-centroids}]
