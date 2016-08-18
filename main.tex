@@ -18,13 +18,16 @@
 \include{settings/changebar.settings}
 %TC:endignore
 
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\AtBeginDocument{
+  \renewcommand{\thelstlisting}{
+  	\thesection.\arabic{lstlisting}
+  }
+}
 
 % ========= Add variables \theauthor, \thetitle, \thedate etc. =========
 \usepackage{titling}
-
-% \hyphenation{
-%    add manual hyphenation rules in the format: Fach-hoch-schule
-% }
 
 % ========= MISC LOADED AFTER HYPERREF =========
 \usepackage[noabbrev]{cleveref}
