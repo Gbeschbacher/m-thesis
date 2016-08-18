@@ -46,17 +46,17 @@ If the current visualisation is a cartogram and the user wishes to change the vi
     \label{tab:transition-table-implemented}
 \end{table}
 
-The implemented web application is accessible online\footnote{See \href{https://particles-masterthesis.github.io/aggregation/}{https://particles-masterthesis.github.io/aggregation/} for more information.}. The Figures featured in this Section are all taken directly from the web application. The source code is also accessible online\footnote{See \href{https://github.com/particles-masterthesis/aggregation}{https://github.com/particles-masterthesis/aggregation} for more information.}.
+The implemented web application is accessible online\footnote{See \href{https://particles-masterthesis.github.io/aggregation/}{https://particles-masterthesis.github.io/aggregation/} for more information.}. The figures featured in this section are all taken directly from the web application. The source code is also accessible online\footnote{See \href{https://github.com/particles-masterthesis/aggregation}{https://github.com/particles-masterthesis/aggregation} for more information.}.
 
 The implemented application only features basic interaction methods. Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows a navigation bar and the configurable settings. Changing the visual appearance can be achieved by interacting with the bar. If changing any kind of configuration is desired, e.g. the speed of moving particles or the level of detail shown, this can be done by using the graphical user interface in the top right.
 
 \begin{figure}[!htb]
 
-   \begin{minipage}{\linewidth} 
+   \begin{minipage}{\linewidth}
         \centering
         \subcaptionbox
         [
-            Particle-based dot map        
+            Particle-based dot map
         ]
         {
             Particle-based dot map.
@@ -81,9 +81,9 @@ The implemented application only features basic interaction methods. Figure \ref
             \includegraphics[width=0.4\textwidth,keepaspectratio]
             {images/results/map_psm.png}
         }
-   \end{minipage} 
+   \end{minipage}
 
-   \begin{minipage}{\linewidth} 
+   \begin{minipage}{\linewidth}
         \centering
         \subcaptionbox
         [
@@ -112,7 +112,7 @@ The implemented application only features basic interaction methods. Figure \ref
             \includegraphics[width=0.4\textwidth,keepaspectratio]
             {images/results/map_cartogram.png}
         }
-   \end{minipage} 
+   \end{minipage}
     \caption[The implemented web-application showing four different types of geo-spatial map visualisations and with its interaction possibilities.]
     {The implemented web-application showing four different types of geo-spatial map visualisations and with its interaction possibilities.}
     \label{f:showcase-overall}
@@ -122,7 +122,7 @@ The implemented application only features basic interaction methods. Figure \ref
 
 Furthermore, Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows the implemented geo-spatial map visualisations. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the multivariate classed proportional symbol map, \ref{f:showcase-choropleth} the classed choropleth map and \ref{f:showcase-cartogram} the classed Pseude-Demers cartogram.
 
-One herein before mentioned animated transition is showcased in Figure \ref{f:showcase-transition-dot-cartogram} on page \pageref{f:showcase-transition-dot-cartogram}. It shows the animated transition from the dot map to the Pseudo-Demers cartogram. Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented} explaines the stacked transitions in detail. The Figure needs to be read line by line. The level of detail in the example is set to use state-data. Step 1 shows the dot map which is the starting point of the transition. Step 2 illustrates the default symbols (Draw defaults). Step 3 to 5 are showing the CB-colour transition where all particles are moving to their appropriate centroid and colouring it if they reach their destination. If this transition is finished, step 6 and 7 show the scaling of the symbols according to their population. Step 8 displays the force which is applied in case of a collision and the remaining subfigures showcase the location preserable gravity applied to each symbol. If the transition is entirely finished, the base map is removed.
+One herein before mentioned animated transition is showcased in Figure \ref{f:showcase-transition-dot-cartogram} on page \pageref{f:showcase-transition-dot-cartogram}. It shows the animated transition from the dot map to the Pseudo-Demers cartogram. Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented} explaines the stacked transitions in detail. The figure needs to be read line by line. The level of detail in the example is set to use state-data. Step 1 shows the dot map which is the starting point of the transition. Step 2 illustrates the default symbols (Draw defaults). Step 3 to 5 are showing the CB-colour transition where all particles are moving to their appropriate centroid and colouring it if they reach their destination. If this transition is finished, step 6 and 7 show the scaling of the symbols according to their population. Step 8 displays the force which is applied in case of a collision and the remaining subfigures showcase the location preserable gravity applied to each symbol. If the transition is entirely finished, the base map is removed.
 
 \begin{figure*}
     \centering
