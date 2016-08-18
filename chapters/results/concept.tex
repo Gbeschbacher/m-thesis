@@ -91,11 +91,11 @@ The implemented application only features basic interaction methods. Figure \ref
     \label{f:showcase-overall}
 \end{figure}
 
-
-
 Furthermore, Figure \ref{f:showcase-overall} on page \pageref{f:showcase-overall} shows the implemented geo-spatial map visualisations. Figure \ref{f:showcase-dot} shows the implemented dot map, \ref{f:showcase-psm} the multivariate classed proportional symbol map, \ref{f:showcase-choropleth} the classed choropleth map and \ref{f:showcase-cartogram} the classed Pseude-Demers cartogram.
 
-One herein before mentioned animated transition is showcased in Figure \ref{f:showcase-transition-dot-cartogram} on page \pageref{f:showcase-transition-dot-cartogram}. It shows the animated transition from the dot map to the Pseudo-Demers cartogram. Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented} explaines the stacked transitions in detail. The figure needs to be read line by line. The level of detail in the example is set to use state-data. Step 1 shows the dot map which is the starting point of the transition. Step 2 illustrates the default symbols (Draw defaults). Step 3 to 5 are showing the CB-colour transition where all particles are moving to their appropriate centroid and colouring it if they reach their destination. If this transition is finished, step 6 and 7 show the scaling of the symbols according to their population. Step 8 displays the force which is applied in case of a collision and the remaining subfigures showcase the location preserable gravity applied to each symbol. If the transition is entirely finished, the base map is removed.
+One herein before mentioned animated transition is showcased in Figure \ref{f:showcase-transition-dot-cartogram} on page \pageref{f:showcase-transition-dot-cartogram}. It shows the animated transition from the dot map to the Pseudo-Demers cartogram. Table \ref{tab:transition-table-implemented} on page \pageref{tab:transition-table-implemented} explaines the staged transitions in detail. The figure needs to be read line by line. The level of detail in the example is set to use state-data. Step 1 shows the dot map which is the starting point of the transition. Step 2 illustrates the default symbols (\textit{Draw defaults}-transition). Step 3 to 5 are showing the \textit{CB-colour}-transition where all particles are moving to their appropriate centroid and colouring it if they reach their destination. If this transition is finished, step 6 and 7 show the scaling of the symbols according to their population (\textit{Scale}-transition). Step 8 displays the \textit{Force}-transition which is applied in case of a collision and the remaining subfigures showcase the location preservable gravity applied to each symbol. If the transition is entirely finished, the base map is removed.
+
+Another transition is showcased in Figure \ref{f:showcase-transition-psm-choropleth} on page \pageref{f:showcase-transition-psm-choropleth}. It starts off with a proportional symbol map (step 1) and features the \textit{Scale}-transition in step 2 and 3. Step 4 is an interpolation state between both visual appearances where the borders of the states fade out. The \textit{Area-colour}-transition is visible in step 5 and 6.
 
 \begin{figure*}[!htb]
     \centering
@@ -192,4 +192,54 @@ One herein before mentioned animated transition is showcased in Figure \ref{f:sh
 \end{figure*}
 
 
-% TODO: showcase choropleth to psm
+\begin{figure*}[!htb]
+    \centering
+
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/psm_choropleth/step1.png}
+        \caption[]%
+        {{\small Step 1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/psm_choropleth/step2.png}
+        \caption[]%
+        {{\small Step 2}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/psm_choropleth/step3.png}
+        \caption[]%
+        {{\small Step 3}}
+    \end{subfigure}
+    \vskip\baselineskip
+
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/psm_choropleth/step4.png}
+        \caption[]%
+        {{\small Step 4}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/psm_choropleth/step5.png}
+        \caption[]%
+        {{\small Step 5}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/results/psm_choropleth/step6.png}
+        \caption[]%
+        {{\small Step 6}}
+    \end{subfigure}
+    \vskip\baselineskip
+
+    \caption[Showcase of the implemented animated transition from a multivariate classed proportional symbol map to the classed choropleth map]
+    {\small Showcase of the implemented animated transition from a multivariate classed proportional symbol map to the classed choropleth map}
+    \label{f:showcase-transition-psm-choropleth}
+\end{figure*}
